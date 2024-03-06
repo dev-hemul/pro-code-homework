@@ -161,9 +161,9 @@ img {
     padding: 0;
     padding-left: 80px;
     padding-right: 80px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
 }
 
 .slider-item:first-child,
@@ -252,6 +252,7 @@ img {
 
 .code {
     display: block;
+    padding-left: 10px;
     margin-bottom: 5px;
     color: grey;
 }
@@ -259,6 +260,7 @@ img {
 .phone-item h2 {
     margin: 0;
     margin-bottom: 20px;
+    padding-left: 10px;
     font-size: 14px;
     color: #000000;
 }
