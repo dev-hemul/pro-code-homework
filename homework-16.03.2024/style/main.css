@@ -1,32 +1,32 @@
 @font-face {
-    font-family: 'Museo', Arial, sans-serif;
+    font-family: "MuseoSansCyrl", Arial, sans-serif;
 		font-style: normal;
 		font-weight: 300;
 		font-display: swap;
         src: local('Museo'),
-         url('/font/Museo-300.woff2') format('woff2');
+         url('/font/MuseoSansCyrl-300.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: 'Museo', Arial, sans-serif;
+    font-family: 'MuseoSansCyrl', Arial, sans-serif;
 		font-style: normal;
 		font-weight: 500;
 		font-display: swap;
         src: local('Museo'),
-         url('/font/Museo-500.woff2') format('woff2');
+         url('/font/MuseoSansCyrl-500.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: 'Museo', Arial, sans-serif;
+    font-family: 'MuseoSansCyrl', Arial, sans-serif;
 		font-style: normal;
 		font-weight: 700;
 		font-display: swap;
         src: local('Museo'),
-         url('/font/Museo-700.woff2') format('woff2');
+         url('/font/MuseoSansCyrl-700.woff2') format('woff2');
 }
 
 body {
-    font-family: 'Museo', Arial, sans-serif;
+    font-family: "MuseoSansCyrl", Arial, sans-serif;
     font-size: 14px;
     line-height: 20px;
     font-style: normal;
