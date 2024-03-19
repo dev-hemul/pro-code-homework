@@ -3,7 +3,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: local('Harmony'),
+    src: local('Museo'),
     url('../font/Museo-300.woff2') format('woff2');
 }
 
@@ -12,7 +12,7 @@
     font-style: normal;
     font-weight: 500;
     font-display: swap;
-    src: local('Harmony'),
+    src: local('Museo'),
     url('../font/Museo-500.woff2') format('woff2');
 }
 
@@ -21,7 +21,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: local('Harmony'),
+    src: local('Museo'),
     url('../font/Museo-700.woff2') format('woff2');
 }
 
@@ -209,7 +209,7 @@ body {
 }
 
 .header-phones {
-    margin-right: 38px;
+    margin-right: 35px;
 }
 
 .header-phones strong {
@@ -400,6 +400,7 @@ body {
 .main-filter-list {
     position: relative;
     margin-bottom: 20px;
+    padding-bottom: 10px;
     font-weight: 600;
     border-bottom: 1px solid #F5F5F5;
 }
@@ -415,6 +416,7 @@ body {
     padding: 4px;
     transform: rotate(45deg);
     cursor: pointer;
+    color: #ffffff;
 }
 
 .main-top-panel {
@@ -494,6 +496,28 @@ h1 {
     transition: bottom .3s, box-shadow .3s;
 }
 
+.cart-heart {
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    background-image: url('../img/frame-2.svg');
+    background-size: cover;
+}
+
+.cart-balance {
+    display: none;
+    position: absolute;
+    top: 35px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    background-image: url('../img/frame-3.svg');
+    background-size: cover;
+}
+
 .cart-title {
     display: block;
     text-decoration: none;
@@ -510,11 +534,46 @@ h1 {
     font-weight: 500;
 }
 
-.main-catalog-item span {
+.main-catalog-item-price {
     display: block;
     text-align: center;
     font-weight: 700;
 }
+
+.wrapper-button {
+    display: none;
+    position: absolute;
+    left: 0;
+    padding: 40px 20px;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+.main-catalog-item:hover .wrapper-button {
+    display: block;
+}
+
+.main-catalog-item:hover .cart-balance,
+.main-catalog-item:hover .cart-heart {
+    display: block;
+}
+
+.wrapper-button button {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    background-color: #c5222a;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.wrapper-button button:hover {
+    background-color: #9c1a1e;
+}
+
+
 
 .pagination-wrapper {
     display: grid;
