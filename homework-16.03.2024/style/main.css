@@ -1,36 +1,36 @@
 @font-face {
-    font-family: 'MuseoSansCyrl', sans-serif;
+    font-family: 'Museo';
     font-style: normal;
-    font-weight: 300;
+    font-weight: 400;
     font-display: swap;
-    src: local('Museo'),
-    url('/font/MuseoSansCyrl-300.woff2') format('woff2');
+    src: local('Harmony'),
+    url('../font/Museo-300.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: 'MuseoSansCyrl', sans-serif;
+    font-family: 'Museo';
     font-style: normal;
     font-weight: 500;
     font-display: swap;
-    src: local('Museo'),
-    url('/font/MuseoSansCyrl-500.woff2') format('woff2');
+    src: local('Harmony'),
+    url('../font/Museo-500.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: 'MuseoSansCyrl', sans-serif;
+    font-family: 'Museo';
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: local('Museo'),
-    url('/font/MuseoSansCyrl-700.woff2') format('woff2');
+    src: local('Harmony'),
+    url('../font/Museo-700.woff2') format('woff2');
 }
 
 body {
-    font-family: "MuseoSansCyrl", sans-serif;
+    font-family: "Museo", Arial, sans-serif;
     font-size: 14px;
     line-height: 20px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
     color: #000000;
     background-color: #F5F5F5;
 }
