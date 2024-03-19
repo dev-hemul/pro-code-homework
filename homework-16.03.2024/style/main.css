@@ -401,7 +401,7 @@ body {
     position: relative;
     margin-bottom: 20px;
     font-weight: 600;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid #F5F5F5;
 }
 
 .main-filter-list::after {
