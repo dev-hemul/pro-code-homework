@@ -1,0 +1,157 @@
+@font-face {
+    font-family: "Whitney";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local('Whitney'),
+    url('../font/whitney-medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: "Whitney";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('PT Sans Narrow'),
+    url('../font/whitney-bold.woff') format('woff');
+}
+
+body {
+    font-family: "Whitney", Arial, sans-serif;
+    font-weight: 500;
+    min-height: 1200px;
+    background-color: rgb(32, 34, 37);
+}
+
+.page-wrapper {
+    display: grid;
+    grid-template-columns: 70px 240px 1190px 417px;
+    grid-template-rows: 50px calc(100vh - 53px) 53px;
+}
+
+.window {
+    background-color: rgb(32, 34, 37);
+}
+
+.top-container {
+    display: grid;
+    grid-template-columns: 60px 70px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
+}
+
+.img-container {
+    width: 60px;
+    padding: 0;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    margin: 0;
+}
+
+.control-window {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 12px;
+    width: 70px;
+}
+
+.collapse-window {
+    width: 10px;
+    height: 1px;
+    align-self: center;
+    background-image: url('../icon/Minimize.svg');
+}
+
+.full-window {
+    align-self: flex-end;
+    width: 10px;
+    height: 10px;
+    background-image: url('../icon/Maximize.svg');
+}
+
+.close-window {
+    width: 10px;
+    height: 10px;
+    display: block;
+    background-image: url('../icon/Close.svg');
+}
+
+.main-nav {
+    width: 68px;
+    height: 100vh;
+}
+
+.main-nav-list {
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+    list-style: none;
+}
+
+.nav-item {
+    margin-bottom: 18px;
+}
+
+.direct-messages {
+    grid-column: 2/3;
+    grid-row: 1/3;
+    padding-top: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: rgb(47, 49, 54);
+    border-top-left-radius: 5px;
+    border-bottom: 2px solid rgb(35, 37, 39);
+}
+
+.direct-messages label {
+    display: block;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.search {
+    width: 100%;
+    padding: 6px;
+    padding-right: 47px;
+    background-color: rgb(32, 34, 37);
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    color: rgb(114, 118, 125);
+}
+
+.search::placeholder {
+    color: rgb(114, 118, 125);
+    font-family: 'Whitney';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.home-navigation-list {
+    margin: 0;
+    padding: 0;
+    padding-top: 5px;
+    width: 100%;
+    list-style: none;
+    background-color: rgb(57, 60, 67);
+    border-radius: 5px;
+}
+
+.messages {
+    grid-column: 2/3;
+    grid-row: 2/ 3;
+}
+
+.messages-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.user-corner {
+    grid-column: 2/3;
+    grid-row:  3 / 4;
+}
