@@ -26,7 +26,7 @@ body {
 .page-wrapper {
     display: grid;
     grid-template-columns: 70px 240px 1190px 417px;
-    grid-template-rows: 50px calc(100vh - 139px) 53px;
+    grid-template-rows: 50px calc(100vh - 53px - 50px - 26px) 53px;
 }
 
 .window {
@@ -159,7 +159,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding-top: 8px;
-    padding-bottom: 8px;
+    padding-bottom: 15px;
     padding-left: 8px;
     padding-right: 16px;
     align-items: center;
@@ -187,4 +187,33 @@ body {
 
 .user-info img {
     margin-right: 8px;
+}
+
+.user-settings {
+    display: flex;
+}
+
+.user-settings span:not(:last-child) {
+    margin-right: 10px;
+}
+
+.microphone {
+    display: block;
+    width: 12px;
+    height: 17px;
+    background-image: url('../icon/Mute.svg');
+}
+
+.headphones {
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-image: url('../icon/Deafen.svg');
+}
+
+.settings {
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-image: url('../icon/Settings.svg');
 }
