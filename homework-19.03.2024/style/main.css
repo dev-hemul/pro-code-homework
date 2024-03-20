@@ -35,7 +35,7 @@ body {
 
 .page-wrapper {
     display: grid;
-    grid-template-columns: 70px 240px 1190px 417px;
+    grid-template-columns: 70px 240px 1fr 417px;
     grid-template-rows: 26px calc(100vh - 60px) 34px;
 }
 
@@ -146,12 +146,12 @@ body {
 
 .main-header {
     grid-column: 3 / -1;
+    grid-row: 2/3;
 }
 
 .main-header-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
-
 }
 
 .friends-status-list {
