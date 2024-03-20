@@ -19,14 +19,14 @@
 body {
     font-family: "Whitney", Arial, sans-serif;
     font-weight: 500;
-    min-height: 1200px;
+    min-width: 1200px;
     background-color: rgb(32, 34, 37);
 }
 
 .page-wrapper {
     display: grid;
     grid-template-columns: 70px 240px 1190px 417px;
-    grid-template-rows: 50px calc(100vh - 53px) 53px;
+    grid-template-rows: 50px calc(100vh - 139px) 53px;
 }
 
 .window {
@@ -79,7 +79,6 @@ body {
 
 .main-nav {
     width: 68px;
-    height: 100vh;
 }
 
 .main-nav-list {
@@ -124,10 +123,20 @@ body {
 
 .search::placeholder {
     color: rgb(114, 118, 125);
-    font-family: 'Whitney';
+    font-family: 'Whitney', Arial, sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 20px;
+}
+
+.direct-messages {
+    grid-column: 2 / 3;
+    grid-row: 1 / -1;
+}
+
+.main-header {
+    group-reset: 1/ 2;
+    grid-column: 3 / 4;
 }
 
 .home-navigation-list {
@@ -140,11 +149,6 @@ body {
     border-radius: 5px;
 }
 
-.messages {
-    grid-column: 2/3;
-    grid-row: 2/ 3;
-}
-
 .messages-list {
     margin: 0;
     padding: 0;
@@ -152,6 +156,35 @@ body {
 }
 
 .user-corner {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    padding-right: 16px;
+    align-items: center;
     grid-column: 2/3;
     grid-row:  3 / 4;
+}
+
+.user-info {
+    display: flex;
+    color: rgb(255, 255, 255);
+    font-family: 'Whitney', Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 17px;
+}
+
+.user-code {
+    font-weight: 500;
+}
+
+.user-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info img {
+    margin-right: 8px;
 }
