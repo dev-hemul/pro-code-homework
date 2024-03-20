@@ -12,14 +12,24 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: local('PT Sans Narrow'),
+    src: local('Whitney'),
     url('../font/whitney-bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: "Ginto";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local('Ginto'),
+    url('../font/ginto-medium.woff') format('woff');
 }
 
 body {
     font-family: "Whitney", Arial, sans-serif;
     font-weight: 500;
     min-width: 1200px;
+    min-height: 100vh;
     background-color: rgb(32, 34, 37);
 }
 
@@ -135,18 +145,104 @@ body {
 }
 
 .main-header {
-    group-reset: 1/ 2;
-    grid-column: 3 / 4;
+    grid-column: 3 / -1;
+}
+
+.main-header-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.friends-status-list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .home-navigation-list {
     margin: 0;
+    margin-bottom: 19px;
     padding: 0;
     padding-top: 5px;
-    width: 100%;
     list-style: none;
+
+}
+
+.home-navigation-item:first-child {
     background-color: rgb(57, 60, 67);
     border-radius: 5px;
+    margin-bottom: 2px;
+
+}
+
+.home-navigation-item:first-child button {
+    position: relative;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 52px;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.home-navigation-item:nth-child(2) button {
+    position: relative;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 52px;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(142, 146, 151);
+    background-color: transparent;
+}
+
+.home-navigation-item:first-child button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    width: 21px;
+    height: 17px;
+    background-image: url('../icon/friends-white.svg');
+    transform: translateY(-50%);
+}
+
+.home-navigation-item:nth-child(2) button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    width: 22px;
+    height: 15px;
+    background-image: url('../img/nitro.svg');
+    transform: translateY(-50%);
+}
+
+.messages h2 {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 14px;
+    color: rgb(142, 146, 151);
+    font-family: 'Ginto', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 15px;
+}
+
+.messages h2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 11px;
+    width: 11px;
+    height: 11px;
+    background-image: url('../icon/plus.svg');
 }
 
 .messages-list {
@@ -155,16 +251,41 @@ body {
     list-style: none;
 }
 
+.messages-item {
+    margin-bottom: 12px;
+}
+
+.messages-item > div {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    margin-right: 12px;
+}
+
+.avatar-name {
+    display: flex;
+    flex-direction: column;
+    color: rgb(142, 146, 151);
+}
+
+.avatar-name .wid {
+    font-family: 'Whitney', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+}
+
 .user-corner {
     display: flex;
     justify-content: space-between;
     padding-top: 8px;
-    padding-bottom: 11px;
+    padding-bottom: 20px;
     padding-left: 8px;
     padding-right: 16px;
     align-items: center;
     grid-column: 2/3;
-    grid-row:  3 / 4;
+    grid-row: 3 / 4;
 }
 
 .user-info {
