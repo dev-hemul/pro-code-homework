@@ -150,8 +150,127 @@ body {
 }
 
 .main-header-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    align-items: center;
+    background-color: rgb(54, 57, 63);
+    padding-top: 12px;
+    padding-bottom: 14px;
+    padding-left: 48px;
+    padding-right: 20px;
+}
+
+.main-header-wrapper > span {
+    display: block;
+    position: relative;
+    font-family: 'Ginto', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 17px;
+    font-weight: 700;
+    color: #ffffff;
+    padding-right: 16px;
+    border-right: 2px solid rgb(66, 69, 74);
+    margin-right: 7px;
+}
+
+.main-header-wrapper > span::before {
+    content: '';
+    position: absolute;
+    left: -31px;
+    width: 22px;
+    height: 22px;
+    background-image: url('../icon/friends.svg');
+    background-repeat: no-repeat;
+}
+
+.friends-status-list {
+    display: block;
+    align-items: center;
+}
+
+.friends-status-item {
+    margin-right: 35px;
+}
+
+.friends-status-item button {
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.friends-status-item:first-child button {
+    padding: 3px 7px;
+    background-color: rgb(62, 66, 73);
+}
+
+.friends-status-item:nth-child(3) {
+    position: relative;
+}
+
+.friends-status-item:nth-child(3) button::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -15px;
+    background-image: url('../icon/notification.svg');
+}
+
+.friends-status-item:nth-child(4) {
+    position: relative;
+}
+
+.friends-status-item:nth-child(4) button::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -15px;
+    background-image: url('../icon/notification.svg');
+}
+
+.friends-status-item:last-child button {
+    padding: 3px 7px;
+    background-color: rgb(59, 165, 93);
+    border-radius: 3px;
+}
+
+.main-header-right-panel-item {
+    display: flex;
+    width: 117px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-left: auto;
+}
+
+.new-group {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url('../icon/new-group-dm.svg');
+    color: rgb(199, 201, 203);
+}
+
+.inbox {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-image: url('../icon/inbox.svg');
+    color: rgb(199, 201, 203);
+}
+
+.help {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url('../icon/help-support.svg');
+    color: rgb(199, 201, 203);
 }
 
 .friends-status-list {
