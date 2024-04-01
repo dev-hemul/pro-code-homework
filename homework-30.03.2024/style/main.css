@@ -4,6 +4,10 @@
  --color-third: #868e96;
 }
 
+html {
+  box-sizing: border-box;
+}
+
 body {
     min-width: 1200px;
     padding: 0;
@@ -22,7 +26,7 @@ body {
 
 .container {
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 250px;
 }
 
 a {
@@ -69,10 +73,6 @@ img {
 
 .nav-item a:hover {
     color: var(--color-secondary);
-}
-
-.search {
-
 }
 
 .search label {
@@ -131,7 +131,7 @@ h3 {
 
 .main-wrapper {
     display: grid;
-    grid-template-columns: 180px 1fr 180px;
+    grid-template-columns: 250px 1fr 250px;
     gap: 60px;
 }
 
@@ -164,6 +164,7 @@ h3 {
 
 .main-content > p {
     margin: 0;
+    margin-bottom: 20px;
     padding: 0;
 }
 
@@ -174,18 +175,34 @@ h3 {
 
 .article-item > p {
     margin: 0;
+    margin-bottom: 10px;
     padding: 0;
 }
 
 .article-item pre {
     margin: 0;
+    margin-bottom: 20px;
     padding: 0;
+    background-color: #1B1F22;
+}
+
+.article-item pre code {
+    margin: 0;
+    padding: 0;
+}
+
+.table-of-contents h2 {
+    color: var(--color-secondary);
 }
 
 .table-of-contents-list {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+.table-of-contents-list li {
+    margin-bottom: 10px;
 }
 
 .table-of-contents-item a {
@@ -197,7 +214,7 @@ h3 {
         min-width: 0;
     }
 
-    .main-header .container {
+    .container {
         flex-direction: column;
         align-items: center;
         margin: 0;
@@ -233,5 +250,57 @@ h3 {
         margin-left: 0;
         justify-content: space-between;
         align-items: center;
+    }
+
+    main .container {
+        padding: 30px;
+    }
+
+    .main-wrapper {
+        position: relative;
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        gap: 10px;
+    }
+
+    .main-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 36px;
+        height: 36px;
+        background-image: url('../img/menu.png');
+    }
+
+    .table-of-contents {
+        order: -1;
+        justify-self: self-start;
+    }
+
+    .table-of-contents-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .table-of-contents-list li {
+        margin-bottom: 20px;
+        margin-right: 20px;
+    }
+
+     .table-of-contents-list li a {
+         display: block;
+         padding: 5px;
+         background-color: grey;
+         border-radius: 5px;
+     }
+
+    .getting-started {
+        display: none;
+    }
+
+    .article-item pre {
+        white-space: unset;
     }
 }
