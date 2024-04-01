@@ -5,6 +5,7 @@
 }
 
 body {
+    min-width: 1200px;
     padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -15,13 +16,13 @@ body {
 }
 
 .main-header {
+    width: 100%;
     background-color: #6F2CF5;
 }
 
 .container {
-    width: 1320px;
     margin: 0 auto;
-    padding: 0 291px;
+    padding: 0 40px;
 }
 
 .visually-hidden {
@@ -142,8 +143,8 @@ img {
         width: 100%;
     }
 
-    .container {
-        width: auto;
+    .main-header .container {
+        flex-direction: column;
         padding: 0 20px;
     }
 
@@ -154,8 +155,27 @@ img {
         padding-bottom: 20px;
     }
 
+    .nav-list {
+        margin-right: 0;
+        justify-content: space-between;
+    }
+
     .logo {
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .search {
+        margin-bottom: 20px;
+    }
+
+    .search-panel {
+        width: 100%;
+    }
+
+    .user-panel-list {
+        margin-left: 0;
+        justify-content: space-between;
+        align-items: center;
     }
 }
