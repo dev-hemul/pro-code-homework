@@ -274,6 +274,11 @@ h3 {
         background-image: url('../img/menu.png');
     }
 
+    .main-content h1 {
+        font-size: 26px;
+        line-height: 26px;
+    }
+
     .table-of-contents {
         order: -1;
         justify-self: self-start;
