@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Cryptocurrencies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<header class="main-header">
+    <nav class="site-navigation">
+        <ul class="main-navigation">
+            <li class="main-navigation__item"><a href="#">Моя ферма</a></li>
+            <li class="main-navigation__item"><a href="#">Аккаунт</a></li>
+            <li class="main-navigation__item"><a href="#">Налаштування</a></li>
+            <li class="main-navigation__item"><a href="#">Допомога</a></li>
+        </ul>
+    </nav>
+
+    <ul class="user-navigation">
+        <li class="user-navigation__list">
+            <button class="user-navigation__button"></button>
+        </li>
+    </ul>
+
+</header>
+
+<main>
+    <div class="container">
+        <div class="crypto-wrapper">
+            <h1 class="crypto-title">Моя ферма</h1>
+            <section class="crypto-balance">
+                <ul class="crypto-balance__list">
+                    <li class="crypto-balance__item">
+                        <span class="crypto-balance_name"></span>
+                        <span class="crypto-balance_number"></span>
+                    </li>
+                    <li class="crypto-balance__item">
+                        <span class="crypto-balance_name"></span>
+                        <span class="crypto-balance_number"></span>
+                    </li>
+                    <li class="crypto-balance__item">
+                        <span class="crypto-balance_name"></span>
+                        <span class="crypto-balance_number"></span>
+                    </li>
+                </ul>
+            </section>
+            <button class="add-currency">Добавити валюту</button>
+        </div>
+
+        <section class="card-wrapper">
+            <ul class="card-list">
+                <li class="card-list__card-item">
+                    <h2 class="card-item__title">Сумарний баланс</h2>
+                    <span class="card-item__balance-btc">1.245008 BTC</span>
+                    <span class="card-item__balance-usd">15 678 USD</span>
+                    <button class="card-item__button-binance">
+                        <img src="" alt="" class="card-item__button-binance-img">
+                    </button>
+                    <button class="card-item__button-by">
+                        <img src="" alt="" class="card__button-by_img">
+                    </button>
+                </li>
+                <li class="card-item">
+                    <h2 class="card-item__title"></h2>
+                    <span class="card-item__name"></span>
+                    <span class="card-item__number"></span>
+                    <span class="card-item__balance"></span>
+                    <img class="card-item__coin" src="" alt="">
+                    <img class="card-item__graph" src="" alt="">
+                    <div class="auto-purchase">
+                        <input class="auto-purchase_input" type="checkbox" name="ltc" id="ltc">
+                        <label class="auto-purchase_by" for="ltc">Автопокупка хешрейта (3 Mh/s)</label>
+
+                    </div>
+                </li>
+                <li class="card-item">
+                    <h2 class="card-item__title"></h2>
+                    <span class="card-item__name"></span>
+                    <span class="card-item__number"></span>
+                    <span class="card-item__balance"></span>
+                    <img class="card-item__coin" src="" alt="">
+                    <img class="card-item__graph" src="" alt="">
+                    <div class="auto-purchase">
+                        <input class="auto-purchase_input" type="checkbox" name="btc" id="btc">
+                        <label class="auto-purchase_by" for="btc">Автопокупка хешрейта (10 Mh/s)</label>
+
+                    </div>
+                </li>
+                <li class="card-item">
+                    <h2 class="card-item__title"></h2>
+                    <span class="card-item__name"></span>
+                    <span class="card-item__number"></span>
+                    <span class="card-item__balance"></span>
+                    <img class="card-item__coin" src="" alt="">
+                    <img class="card-item__graph" src="" alt="">
+                    <div class="auto-purchase">
+                        <input class="auto-purchase_input" type="checkbox" name="eth" id="eth">
+                        <label class="auto-purchase_by" for="eth">Автопокупка хешрейта (5 Mh/s)</label>
+
+                    </div>
+                </li>
+                <li class="card-item">
+                    <h2 class="card-item__title"></h2>
+                    <span class="card-item__name"></span>
+                    <span class="card-item__number"></span>
+                    <span class="card-item__balance"></span>
+                    <img class="card-item__coin" src="" alt="">
+                    <img class="card-item__graph" src="" alt="">
+                    <div class="auto-purchase">
+                        <input class="auto-purchase_input" type="checkbox" name="dash" id="dash">
+                        <label class="auto-purchase_by" for="dash">Автопокупка хешрейта (3 Mh/s)</label>
+
+                    </div>
+                </li>
+                <li class="card-item">
+                    <h2 class="card-item__title"></h2>
+                    <span class="card-item__name"></span>
+                    <span class="card-item__number"></span>
+                    <span class="card-item__balance"></span>
+                    <img class="card-item__coin" src="" alt="">
+                    <img class="card-item__graph" src="" alt="">
+                    <div class="auto-purchase">
+                        <input class="auto-purchase_input" type="checkbox" name="xmr" id="xmr">
+                        <label class="auto-purchase_by" for="xmr">Автопокупка хешрейта (10 Mh/s)</label>
+
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="main-balance">
+            <ul class="main-balance__list main-balance-item">
+                <li class="main-balance-item">
+                    <h3 class="main-balance-item__title">Загальний баланс</h3>
+                    <span class="main-balance-item__number">1.245</span>
+                    <span class="main-balance-item__name">BTC</span>
+                </li>
+                <li class="main-balance-item">
+                    <h3 class="main-balance-item__title">Нарахування</h3>
+                    <span class="main-balance-item__number">0.114</span>
+                    <span class="main-balance-item__name">BTC</span>
+                </li>
+                <li class="main-balance-item">
+                    <h3 class="main-balance-item__title">Обслуговування</h3>
+                    <span class="main-balance-item__number">0.087</span>
+                    <span class="main-balance-item__name">BTC</span>
+                </li>
+            </ul>
+
+            <section class="main-balance__accruals-balance accruals-balance">
+                <h3 class="accruals-balance__title">Нарахування та баланс</h3>
+                <img src="" alt="" class="accruals-balance__graph">
+                <ul class="accruals-balance__list balance-currency-list">
+                    <li class="balance-currency-list__item">
+                        <button type="button">USDT</button>
+                    </li>
+                    <li class="balance-currency-list__item">
+                        <button type="button">BTC</button>
+                    </li>
+                </ul>
+
+                <ul class="accruals-balance__week balance-week">
+                    <li class="balance-week-item">2 неділі</li>
+                    <li class="balance-week-item">Неділя</li>
+                </ul>
+
+                <ul class="accruals-balance__actions">
+                    <li class="accruals-balance-item"></li>
+                    <li class="accruals-balance-item"></li>
+                    <li class="accruals-balance-item"></li>
+                </ul>
+            </section>
+
+            <section class="main-balance__forecast profitability-forecast">
+                <h3 class="profitability-forecast__title">Прогноз доходу</h3>
+                <ul class="profitability-forecast__list profitability-list">
+                    <li class="profitability-list__item">
+                        <h3 class="profitability-item__title">День</h3>
+                        <span class="profitability-item__profit">0.000000 BTC = 0.00 USD</span>
+                    </li>
+                    <li class="profitability-list__item">
+                        <h3 class="profitability-item__title">Неділя</h3>
+                        <span class="profitability-item__profit">0.000000 BTC = 1000.00 USD</span>
+                    </li>
+                    <li class="profitability-list__item">
+                        <h3 class="profitability-item__title">Місяць</h3>
+                        <span class="profitability-item__profit">0.000000 BTC = 50,000.00 USD</span>
+                    </li>
+                    <li class="profitability-list__item">
+                        <h3 class="profitability-item__title">Рік</h3>
+                        <span class="profitability-item__profit">0.000000 BTC = 0.00 USD</span>
+                    </li>
+                </ul>
+            </section>
+        </section>
+
+        <section class="statistics">
+            <section class="statistics-account">
+                <h3 class="statistics-account-title">Статистика акаунта</h3>
+                <ul class="statistics-account__list statistics-account-list">
+                    <li class="statistics-account-list__item">
+                        <button class="statistics-account-button">All</button>
+                    </li>
+                    <li class="statistics-account-list__item">
+                        <button class="statistics-account-button">Rewards</button>
+                    </li>
+                    <li class="statistics-account-list__item">
+                        <button class="statistics-account-button">Maintenance</button>
+                    </li>
+                    <li class="statistics-account-list__item">
+                        <button class="statistics-account-button">Balance</button>
+                    </li>
+                    <li class="statistics-account-list__item">
+                        <button class="statistics-account-button">Withdrawals</button>
+                    </li>
+                    <li class="statistics-account-list__item">
+                        <button class="statistics-account-button">Contracts</button>
+                    </li>
+                </ul>
+
+                <table class="statistics-all">
+                    <tr>
+                        <th>Тариф</th>
+                        <th>Дата</th>
+                        <th>Час</th>
+                        <th>Сума</th>
+                    </tr>
+                    <tr>
+                        <td>BTC Optimal</td>
+                        <td>Активний</td>
+                        <td>28.02.2018</td>
+                        <td>03:13:26</td>
+                        <td>0.250134 BTC</td>
+                        <td>3 145 USD</td>
+                    </tr>
+                    <tr>
+                        <td>BTC Optimal</td>
+                        <td>Заканчивается</td>
+                        <td>28.02.2018</td>
+                        <td>03:13:26</td>
+                        <td>0.250134 BTC</td>
+                        <td>3 145 USD</td>
+                    </tr>
+                    <tr>
+                        <td>BTC Optimal</td>
+                        <td>Заканчивается</td>
+                        <td>28.02.2018</td>
+                        <td>03:13:26</td>
+                        <td>0.250134 BTC</td>
+                        <td>3 145 USD</td>
+                    </tr>
+                </table>
+            </section>
+            <section class="statistics-contracts">
+                <h3 class="statistics-contract__title">Мої контракти</h3>
+                <ul class="statistics-contract__list statistics-contract-list">
+                    <li class="statistics-contract-item">
+                        <span class="statistics-contract-name">Custom BTC</span>
+                        <span class="statistics-contract-speed">2 TH/s</span>
+                        <span class="statistics-contract-status">Активний</span>
+                        <span class="statistics-contract-date">10.15.2018 — 10.15.2019</span>
+                    </li>
+                    <li class="statistics-contract-item">
+                        <span class="statistics-contract-name">Preorder LTC</span>
+                        <span class="statistics-contract-speed">6 TH/s</span>
+                        <span class="statistics-contract-status">Закінчується</span>
+                        <span class="statistics-contract-date">10.15.2017 — 10.15.2019</span>
+                    </li>
+                    <li class="statistics-contract-item">
+                        <span class="statistics-contract-name">Preorder DASH</span>
+                        <span class="statistics-contract-speed">6 TH/s</span>
+                        <span class="statistics-contract-status">Закінчується</span>
+                        <span class="statistics-contract-date">10.15.2017 — 10.15.2019</span>
+                    </li>
+                </ul>
+
+                <button class="statistics-contract__button" type="button">Показати всі</button>
+            </section>
+
+        </section>
+
+
+    </div>
+</main>
+
+<footer class="main-footer">
+    <p class="copyright">SibHash.com 2018</p>
+</footer>
+</body>
+</html>
