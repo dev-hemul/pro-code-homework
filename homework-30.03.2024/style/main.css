@@ -1,11 +1,11 @@
-:root{
- --color-primary:#ced4da;
- --color-secondary: #ffffff;
- --color-third: #868e96;
+:root {
+    --color-primary: #ced4da;
+    --color-secondary: #ffffff;
+    --color-third: #868e96;
 }
 
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
@@ -71,12 +71,8 @@ img {
     color: var(--color-primary);
 }
 
-.nav-item a:hover {
-    color: var(--color-secondary);
-}
-
 .search label {
- position: relative;
+    position: relative;
 }
 
 .search-icon {
@@ -154,10 +150,6 @@ h3 {
     color: var(--color-secondary);
 }
 
-.getting-started-item a:hover {
-    background-color: #3A2372;
-}
-
 .main-content {
     color: var(--color-secondary);
 }
@@ -207,6 +199,16 @@ h3 {
 
 .table-of-contents-item a {
     color: var(--color-primary);
+}
+
+@media screen and (min-width: 575px) {
+    .nav-item a:hover {
+        color: var(--color-secondary);
+    }
+
+    .getting-started-item a:hover {
+        background-color: #3A2372;
+    }
 }
 
 @media screen and (max-width: 575px) {
@@ -265,7 +267,7 @@ h3 {
     }
 
     .main-wrapper::before {
-        content: '';
+        content: attr(data-burger);
         position: absolute;
         top: -15px;
         right: 0;
@@ -294,12 +296,12 @@ h3 {
         margin-right: 20px;
     }
 
-     .table-of-contents-list li a {
-         display: block;
-         padding: 5px;
-         background-color: grey;
-         border-radius: 5px;
-     }
+    .table-of-contents-list li a {
+        display: block;
+        padding: 5px;
+        background-color: grey;
+        border-radius: 5px;
+    }
 
     .getting-started {
         display: none;
