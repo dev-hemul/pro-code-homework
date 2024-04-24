@@ -4,26 +4,30 @@
     <meta charset="UTF-8">
     <title>Cryptocurrencies</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <header class="main-header">
-    <nav class="site-navigation">
-        <ul class="main-navigation">
-            <li class="main-navigation__item"><a href="#">Моя ферма</a></li>
-            <li class="main-navigation__item"><a href="#">Аккаунт</a></li>
-            <li class="main-navigation__item"><a href="#">Налаштування</a></li>
-            <li class="main-navigation__item"><a href="#">Допомога</a></li>
+    <div class="container nav-wrapper">
+        <nav class="site-navigation">
+            <ul class="main-navigation">
+                <li class="main-navigation__item"><a class="main-navigation__my-farm" href="#">Моя ферма</a></li>
+                <li class="main-navigation__item"><a class="main-navigation__account" href="#">Аккаунт</a></li>
+                <li class="main-navigation__item"><a class="main-navigation__settings" href="#">Налаштування</a></li>
+                <li class="main-navigation__item"><a class="main-navigation__help" href="#">Допомога</a></li>
+            </ul>
+        </nav>
+
+        <ul class="user-navigation">
+            <li class="user-navigation__list">
+                <button class="user-navigation__button">NickOcean</button>
+            </li>
         </ul>
-    </nav>
-
-    <ul class="user-navigation">
-        <li class="user-navigation__list">
-            <button class="user-navigation__button"></button>
-        </li>
-    </ul>
-
+    </div>
 </header>
 
 <main>
@@ -33,34 +37,38 @@
             <section class="crypto-balance">
                 <ul class="crypto-balance__list">
                     <li class="crypto-balance__item">
-                        <span class="crypto-balance_name"></span>
-                        <span class="crypto-balance_number"></span>
+                        <span class="crypto-balance_name crypto-balance-name__ltc">LTC</span>
+                        <span class="crypto-balance_number">$160,43</span>
                     </li>
                     <li class="crypto-balance__item">
-                        <span class="crypto-balance_name"></span>
-                        <span class="crypto-balance_number"></span>
+                        <span class="crypto-balance_name crypto-balance-name__btc">BTC</span>
+                        <span class="crypto-balance_number">$8 545,00</span>
                     </li>
                     <li class="crypto-balance__item">
-                        <span class="crypto-balance_name"></span>
-                        <span class="crypto-balance_number"></span>
+                        <span class="crypto-balance_name crypto-balance-name__eth">ETH</span>
+                        <span class="crypto-balance_number">$533,00</span>
                     </li>
                 </ul>
             </section>
-            <button class="add-currency">Добавити валюту</button>
+            <button type="button" class="add-currency">Добавити валюту</button>
         </div>
 
         <section class="card-wrapper">
             <ul class="card-list">
-                <li class="card-list__card-item">
-                    <h2 class="card-item__title">Сумарний баланс</h2>
-                    <span class="card-item__balance-btc">1.245008 BTC</span>
-                    <span class="card-item__balance-usd">15 678 USD</span>
-                    <button class="card-item__button-binance">
-                        <img src="" alt="" class="card-item__button-binance-img">
-                    </button>
-                    <button class="card-item__button-by">
-                        <img src="" alt="" class="card__button-by_img">
-                    </button>
+                <li class="card-list__card-item card-list__total-balance">
+                    <div class="total-balance-wrapper">
+                        <h2 class="card-item__title">Сумарний баланс</h2>
+                        <span class="card-item__balance-btc">1.245008 BTC</span>
+                        <span class="card-item__balance-usd">15 678 USD</span>
+                    </div>
+                    <div class="total-balance-button-wrapper">
+                        <button class="card-item__button-binance">
+                            <img src="" alt="" class="card-item__button-binance-img">
+                        </button>
+                        <button class="card-item__button-by">
+                            <img src="" alt="" class="card__button-by_img">
+                        </button>
+                    </div>
                 </li>
                 <li class="card-item">
                     <h2 class="card-item__title"></h2>
@@ -237,7 +245,7 @@
                     </tr>
                     <tr>
                         <td>BTC Optimal</td>
-                        <td>Заканчивается</td>
+                        <td>Закінчується</td>
                         <td>28.02.2018</td>
                         <td>03:13:26</td>
                         <td>0.250134 BTC</td>
@@ -245,7 +253,7 @@
                     </tr>
                     <tr>
                         <td>BTC Optimal</td>
-                        <td>Заканчивается</td>
+                        <td>Закінчується</td>
                         <td>28.02.2018</td>
                         <td>03:13:26</td>
                         <td>0.250134 BTC</td>

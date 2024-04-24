@@ -1,187 +1,362 @@
+body {
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 400;
+    color: #000000;
+}
 
+.container {
+    padding: 0 37px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.main-header {
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.04);
+    margin-bottom: 4px;
+}
+
+.nav-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+
+.main-navigation {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 979px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-navigation__item a {
+    display: block;
+}
+
+.main-navigation__my-farm {
+    position: relative;
+    padding-top: 16px;
+    padding-right: 49px;
+    padding-bottom: 18px;
+    padding-left: 80px;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+    border-radius: 5px;
+    box-shadow: 0 8px 10px 0 rgba(60, 84, 117, 0.15);
+    background: linear-gradient(270.00deg, rgb(22, 41, 112) 0%, rgb(37, 83, 144) 99.278%);
+}
+
+.main-navigation__my-farm::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 44px;
+    width: 23px;
+    height: 15px;
+    transform: translateY(-50%);
+    background-image: url('../img/speed-meter.svg');
+}
+
+.main-navigation__account {
+    position: relative;
+    padding-top: 16px;
+    padding-right: 66px;
+    padding-left: 91px;
+    padding-bottom: 18px;
+    color: #000000;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 5px;
+}
+
+.main-navigation__account::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 44px;
+    width: 19px;
+    height: 19px;
+    transform: translateY(-50%);
+    background-image: url('../img/profile.svg');
+    background-repeat: no-repeat;
+}
+
+.main-navigation__settings {
+    position: relative;
+    padding-top: 16px;
+    padding-right: 36px;
+    padding-bottom: 18px;
+    padding-left: 81px;
+    color: #000000;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 5px;
+}
+
+.main-navigation__settings::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 44px;
+    width: 21px;
+    height: 21px;
+    transform: translateY(-50%);
+    background-image: url('../img/settings-work-tool.svg');
+    background-repeat: no-repeat;
+}
+
+.main-navigation__help {
+    position: relative;
+    padding-top: 16px;
+    padding-right: 66px;
+    padding-left: 91px;
+    padding-bottom: 18px;
+    color: #000000;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 5px;
+}
+
+.main-navigation__help::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 44px;
+    width: 21px;
+    height: 21px;
+    transform: translateY(-50%);
+    background-image: url('../img/info.svg');
+    background-repeat: no-repeat;
+}
+
+
+.user-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    width: 146px;
+    list-style: none;
+}
+
+.user-navigation__list {
+    position: relative;
+}
+
+.user-navigation__list::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    background-image: url('../img/select.svg');
+    transform: translateY(-50%);
+}
+
+.user-navigation__list::after {
+    content: '';
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    width: 45px;
+    height: 45px;
+    background-image: url('../img/user-photo.jpeg');
+    transform: translateY(-50%);
+}
+
+.user-navigation__button {
+    padding-right: 17px;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 500;
+    color: rgb(130, 130, 130);
+    border: none;
+    background-color: transparent;
+}
+
+main {
+    padding-top: 30px;
+    background-color: #f6f7f8;
+}
+
+.crypto-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
 
 .crypto-title {
+    margin: 0;
+    margin-right: 62px;
+    font-size: 25px;
+    line-height: 29px;
+    font-weight: 500;
+    color: #000000;
 }
 
 .crypto-balance {
+    width: 520px;
 }
 
 .crypto-balance__list {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .crypto-balance__item {
+    font-size: 25px;
+    opacity: 0.3;
+    color: rgb(0, 0, 0);
 }
 
 .crypto-balance_name {
+    position: relative;
+    font-size: 17px;
+    font-weight: 500;
 }
 
-.crypto-balance_number {
+.crypto-balance-name__ltc::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 14px;
+    height: 14px;
+    background-image: url('../img/litecoin-grey.png');
+    transform: translateY(-50%);
+}
+
+.crypto-balance-name__btc::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 14px;
+    height: 14px;
+    background-image: url('../img/bitcoin-grey.png');
+    transform: translateY(-50%);
+}
+
+.crypto-balance-name__eth::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 14px;
+    height: 14px;
+    background-image: url('../img/ethereum-grey.png');
+    transform: translateY(-50%);
 }
 
 .add-currency {
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 45px;
+    padding-right: 15px;
+    margin-left: auto;
+    font-size: 13px;
+    font-weight: 500;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 8px 10px 0 rgba(60, 84, 117, 0.15);
+    background: linear-gradient(270.00deg, rgb(22, 41, 112) 0%, rgb(37, 83, 144) 99.278%);
+    cursor: pointer;
+}
+
+.add-currency::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    width: 9px;
+    border: 1px solid #ffffff;
+    transform: translateY(-50%);
+}
+
+.add-currency::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 24.56px;
+    height: 9px;
+    border: 1px solid #ffffff;
+    transform: translateY(-50%);
 }
 
 .card-wrapper {
+    margin-bottom: 39px;
 }
 
 .card-list {
+    display: grid;
+    grid-template-columns: repeat(4, 290px);
+    gap: 26px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.card-list__card-item {
+.card-list__total-balance {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    padding-bottom: 18px;
+    padding-left: 25px;
 }
 
-.card-item__title {
+.total-balance-wrapper {
+    border: 2px solid rgb(242, 174, 75);
+    border-radius: 5px;
+    box-shadow: 0px 8px 10px 0px rgba(60, 84, 117, 0.15);
+    background: rgb(255, 255, 255);
 }
 
-.card-item__balance-btc {
-}
 
-.card-item__balance-usd {
-}
 
-.card-item__button-binance {
-}
 
-.card-item__button-binance-img {
-}
-
-.card-item__button-by {
-}
-
-.card__button-by_img {
-}
-
-.card-item {
-}
-
-.card-item__name {
-}
-
-.card-item__number {
-}
-
-.card-item__balance {
-}
-
-.card-item__coin {
-}
-
-.card-item__graph {
-}
-
-.auto-purchase {
-}
-
-.auto-purchase_input {
-}
-
-.auto-purchase_by {
-}
-
-.main-balance {
-}
-
-.main-balance__list {
-}
-
-.main-balance-item {
-}
-
-.main-balance-item__title {
-}
-
-.main-balance-item__number {
-}
-
-.main-balance-item__name {
-}
-
-.main-balance__accruals-balance {
-}
-
-.accruals-balance {
-}
-
-.accruals-balance__title {
-}
-
-.accruals-balance__graph {
-}
-
-.accruals-balance__list {
-}
-
-.balance-currency-list {
-}
-
-.balance-currency-list__item {
-}
-
-.accruals-balance__week {
-}
-
-.balance-week {
-}
-
-.balance-week-item {
-}
-
-.accruals-balance__actions {
-}
-
-.accruals-balance-item {
-}
-
-.main-balance__forecast {
-}
-
-.profitability-forecast {
-}
-
-.profitability-forecast__title {
-}
-
-.profitability-forecast__list {
-}
-
-.profitability-list {
-}
-
-.profitability-list__item {
-}
-
-.profitability-item__title {
-}
-
-.profitability-item__profit {
-}
-
-.statistics {
-}
-
-.statistics-account {
-}
-
-.statistics-account-title {
-}
-
-.statistics-account__list {
-}
-
-.statistics-account-list {
-}
-
-.statistics-account-list__item {
-}
-
-.statistics-account-button {
-}
-
-.statistics-contracts {
-}
-
-.statistics-contract__title {
-}
-
-.main-footer {
-}
