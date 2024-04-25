@@ -57,159 +57,223 @@
             <ul class="card-list">
                 <li class="card-list__card-item card-list__total-balance">
                     <div class="total-balance-wrapper">
-                        <h2 class="card-item__title">Сумарний баланс</h2>
-                        <span class="card-item__balance-btc">1.245008 BTC</span>
-                        <span class="card-item__balance-usd">15 678 USD</span>
+                        <h2 class="card-item__title-balance">Сумарний баланс</h2>
+                        <div class="card-item__balance-btc">
+                            <span>1.245008</span>
+                            <span>BTC</span>
+                        </div>
+                        <span class="card-item_balance-usd">15 678 USD</span>
                     </div>
                     <div class="total-balance-button-wrapper">
                         <button class="card-item__button-binance">
-                            <img src="" alt="" class="card-item__button-binance-img">
+                            <img src="img/binance.png" width="110" height="22" alt="binance"
+                                 class="card-item__button-binance-img">
                         </button>
                         <button class="card-item__button-by">
-                            <img src="" alt="" class="card__button-by_img">
+                            <img src="img/by.png" width="125" height="27" alt="кнопка купити"
+                                 class="card__button-by_img">
                         </button>
                     </div>
                 </li>
                 <li class="card-item">
-                    <h2 class="card-item__title"></h2>
-                    <span class="card-item__name"></span>
-                    <span class="card-item__number"></span>
-                    <span class="card-item__balance"></span>
-                    <img class="card-item__coin" src="" alt="">
-                    <img class="card-item__graph" src="" alt="">
+                    <div class="card-item-wrapper">
+                        <div class="card-item-info-wrapper">
+                            <h2 class="card-item__title">Litecoin</h2>
+                            <span class="card-item__name">LTC</span>
+                            <div class="card-item__number">
+                                <span>24</span>
+                                <span>MH/S</span>
+                            </div>
+                            <span class="card-item__balance">0.15000000 LTC</span>
+                        </div>
+                        <div class="card-item-graph">
+                            <img class="card-item__coin" src="img/litecoin-card.png" width="25" height="24"
+                                 alt="litecoin">
+                            <img class="card-item__graph" src="img/ltc-graph.svg" width="105" height="42"
+                                 alt="litecoin-graph">
+                        </div>
+                    </div>
                     <div class="auto-purchase">
-                        <input class="auto-purchase_input" type="checkbox" name="ltc" id="ltc">
-                        <label class="auto-purchase_by" for="ltc">Автопокупка хешрейта (3 Mh/s)</label>
-
+                        <input class="auto-purchase_input visually-hidden" type="checkbox" name="ltc" id="ltc" checked>
+                        <label class="auto-purchase_by" for="ltc">Автопокупка хешрейта</label>
+                        <span>(3 Mh/s)</span>
                     </div>
                 </li>
                 <li class="card-item">
-                    <h2 class="card-item__title"></h2>
-                    <span class="card-item__name"></span>
-                    <span class="card-item__number"></span>
-                    <span class="card-item__balance"></span>
-                    <img class="card-item__coin" src="" alt="">
-                    <img class="card-item__graph" src="" alt="">
+                    <div class="card-item-wrapper">
+                        <div class="card-item-info-wrapper">
+                            <h2 class="card-item__title">Bitcoin</h2>
+                            <span class="card-item__name">BTC</span>
+                            <div class="card-item__number">
+                                <span>24</span>
+                                <span>MH/S</span>
+                            </div>
+                            <span class="card-item__balance">0.15000000 LTC</span>
+                        </div>
+                        <div class="card-item-graph">
+                            <img class="card-item__coin" src="img/bitcoin-card.png" width="25" height="24"
+                                 alt="litecoin">
+                            <img class="card-item__graph" src="img/btc-graph.svg" width="105" height="42"
+                                 alt="litecoin-graph">
+                        </div>
+                    </div>
                     <div class="auto-purchase">
-                        <input class="auto-purchase_input" type="checkbox" name="btc" id="btc">
-                        <label class="auto-purchase_by" for="btc">Автопокупка хешрейта (10 Mh/s)</label>
-
+                        <input class="auto-purchase_input visually-hidden" type="checkbox" name="btc" id="btc">
+                        <label class="auto-purchase_by" for="btc">Автопокупка хешрейта</label>
+                        <span>(10 Mh/s)</span>
                     </div>
                 </li>
                 <li class="card-item">
-                    <h2 class="card-item__title"></h2>
-                    <span class="card-item__name"></span>
-                    <span class="card-item__number"></span>
-                    <span class="card-item__balance"></span>
-                    <img class="card-item__coin" src="" alt="">
-                    <img class="card-item__graph" src="" alt="">
+                    <div class="card-item-wrapper">
+                        <div class="card-item-info-wrapper">
+                            <h2 class="card-item__title">Ethereum</h2>
+                            <span class="card-item__name">ETH</span>
+                            <div class="card-item__number">
+                                <span>24</span>
+                                <span>MH/S</span>
+                            </div>
+                            <span class="card-item__balance">0.15000000 LTC</span>
+                        </div>
+                        <div class="card-item-graph">
+                            <img class="card-item__coin" src="img/ethereum-card.png" width="25" height="24"
+                                 alt="litecoin">
+                            <img class="card-item__graph" src="img/eth-graph.svg" width="105" height="42"
+                                 alt="litecoin-graph">
+                        </div>
+                    </div>
                     <div class="auto-purchase">
-                        <input class="auto-purchase_input" type="checkbox" name="eth" id="eth">
-                        <label class="auto-purchase_by" for="eth">Автопокупка хешрейта (5 Mh/s)</label>
-
+                        <input class="auto-purchase_input visually-hidden" type="checkbox" name="eth" id="eth" checked>
+                        <label class="auto-purchase_by" for="eth">Автопокупка хешрейта</label>
+                        <span>(5 Mh/s)</span>
                     </div>
                 </li>
                 <li class="card-item">
-                    <h2 class="card-item__title"></h2>
-                    <span class="card-item__name"></span>
-                    <span class="card-item__number"></span>
-                    <span class="card-item__balance"></span>
-                    <img class="card-item__coin" src="" alt="">
-                    <img class="card-item__graph" src="" alt="">
+                    <div class="card-item-wrapper">
+                        <div class="card-item-info-wrapper">
+                            <h2 class="card-item__title">Dash</h2>
+                            <span class="card-item__name">DASH</span>
+                            <div class="card-item__number">
+                                <span>0</span>
+                                <span>MH/S</span>
+                            </div>
+                            <span class="card-item__balance">0. 000000 DASH</span>
+                        </div>
+                        <div class="card-item-graph">
+                            <img class="card-item__coin" src="img/dash-card.png" width="25" height="24"
+                                 alt="litecoin">
+                            <img class="card-item__graph" src="img/dash-graph.svg" width="105" height="42"
+                                 alt="litecoin-graph">
+                        </div>
+                    </div>
                     <div class="auto-purchase">
-                        <input class="auto-purchase_input" type="checkbox" name="dash" id="dash">
-                        <label class="auto-purchase_by" for="dash">Автопокупка хешрейта (3 Mh/s)</label>
-
+                        <input class="auto-purchase_input visually-hidden" type="checkbox" name="dash" id="dash" checked>
+                        <label class="auto-purchase_by" for="dash">Автопокупка хешрейта</label>
+                        <span>(3 Mh/s)</span>
                     </div>
                 </li>
                 <li class="card-item">
-                    <h2 class="card-item__title"></h2>
-                    <span class="card-item__name"></span>
-                    <span class="card-item__number"></span>
-                    <span class="card-item__balance"></span>
-                    <img class="card-item__coin" src="" alt="">
-                    <img class="card-item__graph" src="" alt="">
+                    <div class="card-item-wrapper">
+                        <div class="card-item-info-wrapper">
+                            <h2 class="card-item__title">Monero</h2>
+                            <span class="card-item__name">XMR</span>
+                            <div class="card-item__number">
+                                <span>24</span>
+                                <span>MH/S</span>
+                            </div>
+                            <span class="card-item__balance">0.15000000 LTC</span>
+                        </div>
+                        <div class="card-item-graph">
+                            <img class="card-item__coin" src="img/monero-card.png" width="25" height="24"
+                                 alt="litecoin">
+                            <img class="card-item__graph" src="img/monero-graph.svg" width="105" height="42"
+                                 alt="litecoin-graph">
+                        </div>
+                    </div>
                     <div class="auto-purchase">
-                        <input class="auto-purchase_input" type="checkbox" name="xmr" id="xmr">
-                        <label class="auto-purchase_by" for="xmr">Автопокупка хешрейта (10 Mh/s)</label>
-
+                        <input class="auto-purchase_input visually-hidden" type="checkbox" name="monero" id="monero">
+                        <label class="auto-purchase_by" for="monero">Автопокупка хешрейта</label>
+                        <span>(3 Mh/s)</span>
                     </div>
                 </li>
             </ul>
         </section>
 
         <section class="main-balance">
-            <ul class="main-balance__list main-balance-item">
+            <ul class="main-balance__list">
                 <li class="main-balance-item">
-                    <h3 class="main-balance-item__title">Загальний баланс</h3>
+                    <h3 class="main-balance-item__title main-balance-item__title-balance">Загальний баланс</h3>
                     <span class="main-balance-item__number">1.245</span>
                     <span class="main-balance-item__name">BTC</span>
                 </li>
                 <li class="main-balance-item">
                     <h3 class="main-balance-item__title">Нарахування</h3>
-                    <span class="main-balance-item__number">0.114</span>
+                    <span class="main-balance-item__number main-balance-item__profit">0.114</span>
                     <span class="main-balance-item__name">BTC</span>
                 </li>
                 <li class="main-balance-item">
                     <h3 class="main-balance-item__title">Обслуговування</h3>
-                    <span class="main-balance-item__number">0.087</span>
+                    <span class="main-balance-item__number main-balance-item__service">0.087</span>
                     <span class="main-balance-item__name">BTC</span>
                 </li>
             </ul>
+            <div class="growth-chart-wrapper">
+                <section class="main-balance__accruals-balance accruals-balance">
+                    <h3 class="accruals-balance__title">Нарахування та баланс</h3>
+                    <!--
+                    <img src="" alt="" class="accruals-balance__graph">
+                    <ul class="accruals-balance__list balance-currency-list">
+                        <li class="balance-currency-list__item">
+                            <button type="button">USDT</button>
+                        </li>
+                        <li class="balance-currency-list__item">
+                            <button type="button">BTC</button>
+                        </li>
+                    </ul>
 
-            <section class="main-balance__accruals-balance accruals-balance">
-                <h3 class="accruals-balance__title">Нарахування та баланс</h3>
-                <img src="" alt="" class="accruals-balance__graph">
-                <ul class="accruals-balance__list balance-currency-list">
-                    <li class="balance-currency-list__item">
-                        <button type="button">USDT</button>
-                    </li>
-                    <li class="balance-currency-list__item">
-                        <button type="button">BTC</button>
-                    </li>
-                </ul>
+                    <ul class="accruals-balance__week balance-week">
+                        <li class="balance-week-item">2 неділі</li>
+                        <li class="balance-week-item">Неділя</li>
+                    </ul>
 
-                <ul class="accruals-balance__week balance-week">
-                    <li class="balance-week-item">2 неділі</li>
-                    <li class="balance-week-item">Неділя</li>
-                </ul>
+                    <ul class="accruals-balance__actions">
+                        <li class="accruals-balance-item"></li>
+                        <li class="accruals-balance-item"></li>
+                        <li class="accruals-balance-item"></li>
+                    </ul>-->
+                    <img src="img/accruals-balance-graphic.png" width="915" height="297" alt="Графік росту">
 
-                <ul class="accruals-balance__actions">
-                    <li class="accruals-balance-item"></li>
-                    <li class="accruals-balance-item"></li>
-                    <li class="accruals-balance-item"></li>
-                </ul>
-            </section>
+                </section>
 
-            <section class="main-balance__forecast profitability-forecast">
-                <h3 class="profitability-forecast__title">Прогноз доходу</h3>
-                <ul class="profitability-forecast__list profitability-list">
-                    <li class="profitability-list__item">
-                        <h3 class="profitability-item__title">День</h3>
-                        <span class="profitability-item__profit">0.000000 BTC = 0.00 USD</span>
-                    </li>
-                    <li class="profitability-list__item">
-                        <h3 class="profitability-item__title">Неділя</h3>
-                        <span class="profitability-item__profit">0.000000 BTC = 1000.00 USD</span>
-                    </li>
-                    <li class="profitability-list__item">
-                        <h3 class="profitability-item__title">Місяць</h3>
-                        <span class="profitability-item__profit">0.000000 BTC = 50,000.00 USD</span>
-                    </li>
-                    <li class="profitability-list__item">
-                        <h3 class="profitability-item__title">Рік</h3>
-                        <span class="profitability-item__profit">0.000000 BTC = 0.00 USD</span>
-                    </li>
-                </ul>
-            </section>
+                <section class="main-balance__forecast profitability-forecast">
+                    <h3 class="profitability-forecast__title">Прогноз доходу</h3>
+                    <ul class="profitability-forecast__list profitability-list">
+                        <li class="profitability-list__item">
+                            <h3 class="profitability-item__title">День</h3>
+                            <span class="profitability-item__profit">0.000000 BTC = 0.00 USD</span>
+                        </li>
+                        <li class="profitability-list__item">
+                            <h3 class="profitability-item__title">Неділя</h3>
+                            <span class="profitability-item__profit">0.000000 BTC = 1000.00 USD</span>
+                        </li>
+                        <li class="profitability-list__item">
+                            <h3 class="profitability-item__title">Місяць</h3>
+                            <span class="profitability-item__profit profitability-item__profit-last">0.000000 BTC = 50,000.00 USD</span>
+                        </li>
+                        <li class="profitability-list__item">
+                            <h3 class="profitability-item__title">Рік</h3>
+                            <span class="profitability-item__profit">0.000000 BTC = 0.00 USD</span>
+                        </li>
+                    </ul>
+                </section>
+            </div>
         </section>
 
         <section class="statistics">
             <section class="statistics-account">
                 <h3 class="statistics-account-title">Статистика акаунта</h3>
                 <ul class="statistics-account__list statistics-account-list">
-                    <li class="statistics-account-list__item">
-                        <button class="statistics-account-button">All</button>
+                    <li class="statistics-account-list__item statistics-account-list__item-current">
+                        <button class="statistics-account-button statistics-account-button-current">All</button>
                     </li>
                     <li class="statistics-account-list__item">
                         <button class="statistics-account-button">Rewards</button>
@@ -229,35 +293,29 @@
                 </ul>
 
                 <table class="statistics-all">
-                    <tr>
-                        <th>Тариф</th>
-                        <th>Дата</th>
-                        <th>Час</th>
-                        <th>Сума</th>
+                    <tr class="table-categories">
+                        <th class="table-categories__rate"><span>Тариф</span></th>
+                        <th class="table-categories__date"><span>Дата</span></th>
+                        <th class="table-categories__time"><span>Час</span></th>
+                        <th class="table-categories__sum"><span>Сума</span></th>
                     </tr>
-                    <tr>
-                        <td>BTC Optimal</td>
-                        <td>Активний</td>
+                    <tr class="btc-v1">
+                        <td>BTC Optimal <span>Активний</span></td>
                         <td>28.02.2018</td>
                         <td>03:13:26</td>
-                        <td>0.250134 BTC</td>
-                        <td>3 145 USD</td>
+                        <td>0.250134 BTC <span>3 145 USD</span></td>
                     </tr>
-                    <tr>
-                        <td>BTC Optimal</td>
-                        <td>Закінчується</td>
+                    <tr class="btc-v2">
+                        <td>BTC Optimal <span>Закінчується</span></td>
                         <td>28.02.2018</td>
                         <td>03:13:26</td>
-                        <td>0.250134 BTC</td>
-                        <td>3 145 USD</td>
+                        <td>0.250134 BTC <span>3 145 USD</span></td>
                     </tr>
-                    <tr>
-                        <td>BTC Optimal</td>
-                        <td>Закінчується</td>
+                    <tr class="btc-v3">
+                        <td>BTC Optimal <span>Закінчується</span></td>
                         <td>28.02.2018</td>
                         <td>03:13:26</td>
-                        <td>0.250134 BTC</td>
-                        <td>3 145 USD</td>
+                        <td>0.250134 BTC <span>3 145 USD</span></td>
                     </tr>
                 </table>
             </section>
@@ -265,10 +323,14 @@
                 <h3 class="statistics-contract__title">Мої контракти</h3>
                 <ul class="statistics-contract__list statistics-contract-list">
                     <li class="statistics-contract-item">
+                        <div class="statistics-contract__list-top">
                         <span class="statistics-contract-name">Custom BTC</span>
                         <span class="statistics-contract-speed">2 TH/s</span>
+                        </div>
+                        <div class="statistics-contract__list-bottom">
                         <span class="statistics-contract-status">Активний</span>
                         <span class="statistics-contract-date">10.15.2018 — 10.15.2019</span>
+                        </div>
                     </li>
                     <li class="statistics-contract-item">
                         <span class="statistics-contract-name">Preorder LTC</span>
@@ -294,7 +356,9 @@
 </main>
 
 <footer class="main-footer">
-    <p class="copyright">SibHash.com 2018</p>
+    <div class="container">
+        <p class="copyright">SibHash.com 2018</p>
+    </div>
 </footer>
 </body>
 </html>
