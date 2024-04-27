@@ -583,6 +583,7 @@ main {
 
 .main-balance__list {
     display: flex;
+    flex-wrap: wrap;
     margin: 0;
     margin-bottom: 23px;
     padding: 0;
@@ -958,6 +959,7 @@ tr td:last-child span {
 
 .statistics-contract__list-top {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 14px;
 }
@@ -971,6 +973,7 @@ tr td:last-child span {
 
 .statistics-contract__list-bottom {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     font-size: 13px;
 }
@@ -990,6 +993,7 @@ tr td:last-child span {
 }
 
 .statistics-contract__button {
+    position: relative;
     display: block;
     padding-left: 63px;
     padding-right: 35px;
@@ -1000,7 +1004,16 @@ tr td:last-child span {
     border: 0.5px solid #E0E0E0;
     font-size: 13px;
     background-color: transparent;
+}
 
+.statistics-contract__button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 43px;
+    width: 10px;
+    height: 2px;
+    background-image: url('../img/more.svg');
 }
 
 .main-footer {
@@ -1022,6 +1035,28 @@ tr td:last-child span {
         margin-bottom: 20px;
     }
 
+    .nav-wrapper {
+        display: block;
+    }
+
+    .main-navigation {
+        display: block;
+        margin-bottom: 40px;
+    }
+
+    .main-navigation__item > a {
+        display: flex;
+        justify-content: center;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+
+
+    .main-navigation__item > a::before {
+        left: 30px;
+    }
+
     .main-navigation__item {
         margin-right: 0;
         margin-bottom: 15px;
@@ -1036,6 +1071,19 @@ tr td:last-child span {
     .accruals-balance__title
     {
         display: none;
+    }
+
+    .main-balance-item {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .main-balance-item:first-child {
+        margin-right: 0;
+    }
+
+    .main-balance-item:nth-child(2) {
+        margin-right: 0;
     }
 
     .growth-chart-wrapper {
@@ -1076,12 +1124,29 @@ tr td:last-child span {
        justify-content: space-between;
     }
 
+    .statistics-account {
+        margin-right: 0;
+    }
+
+    .statistics-contracts {
+        width: 100%;
+    }
+
     .statistics-account-list__item {
         margin-bottom: 15px;
     }
 
     .statistics-all {
         display: none;
+    }
+
+    .statistics-contract__list {
+        display: block;
+        padding-left: 0;
+    }
+
+    .statistics-contract-item {
+        display: block;
     }
 
     .statistics-contract__button {
