@@ -1184,6 +1184,44 @@ tr td:last-child span {
     }
 }
 
+@media screen and (min-width: 1400px) {
+    .card-list {
+        grid-template-columns: repeat(auto-fill, minmax(290px, 1fr) );
+    }
+
+    .main-balance__list {
+        justify-content: center;
+    }
+
+    .main-balance-item {
+        margin-right: 0;
+    }
+
+    .growth-chart-wrapper {
+        display: grid;
+        grid-template-columns: 915px 1fr;
+    }
+
+    .profitability-forecast__list {
+       display: block;
+        padding-bottom: 14px;
+    }
+
+    .statistics {
+        display: grid;
+        grid-template-columns: 915px 1fr;
+    }
+
+    .statistics-contracts {
+        width: 100%;
+        display: block;
+    }
+
+    .statistics-contract-item {
+      display: block;
+    }
+}
+
 
 
 
