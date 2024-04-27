@@ -1067,6 +1067,7 @@ tr td:last-child span {
     .user-navigation {
         margin: 0 auto;
         order: -1;
+        margin-top: 20px;
         margin-bottom: 40px;
     }
 
@@ -1098,7 +1099,7 @@ tr td:last-child span {
 
     .crypto-title {
         margin: 0 auto;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
     }
 
     .crypto-balance__item {
