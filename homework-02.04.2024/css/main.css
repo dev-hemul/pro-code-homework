@@ -838,7 +838,7 @@ th span::after {
 .btc-v1 td:first-child,
 .btc-v2 td:first-child,
 .btc-v3 td:first-child {
-    padding-right: 75px;
+    padding-right: 70px;
     font-size: 14px;
     font-weight: 700;
     color: #255390;
@@ -869,7 +869,7 @@ tr:not(:last-child) td {
 tr td:first-child span {
     display: inline-block;
     padding-left: 5px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
     color: #F2994A;
 }
@@ -877,7 +877,7 @@ tr td:first-child span {
 .btc-v1 td:first-child span {
     display: inline-block;
     padding-left: 9px;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
     color: #219653;
 }
@@ -922,9 +922,15 @@ tr td:last-child span {
     padding-top: 23px;
 }
 
+.statistics-contracts {
+    width: 310px;
+}
+
 .statistics-contract__list {
     margin: 0;
     padding: 0;
+    padding-top: 8px;
+    padding-left: 10px;
     list-style: none;
 }
 
@@ -941,17 +947,19 @@ tr td:last-child span {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 6px;
+    padding-bottom: 16px;
     padding-left: 15px;
     padding-right: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 13px;
     background-color: #fff;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.03);
 }
 
 .statistics-contract__list-top {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 14px;
 }
 
 .statistics-contract-name,
@@ -964,12 +972,39 @@ tr td:last-child span {
 .statistics-contract__list-bottom {
     display: flex;
     justify-content: space-between;
+    font-size: 13px;
 }
 
+.statistics-contract-status {
+    font-weight: 500;
+    color: #F2994A;
+    opacity: 0.7;
+}
 
+.statistics-contract-status--active {
+    color: #219653;
+}
+
+.statistics-contract-date {
+    opacity: 0.7;
+}
+
+.statistics-contract__button {
+    display: block;
+    padding-left: 63px;
+    padding-right: 35px;
+    margin: 0 auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 20px;
+    border: 0.5px solid #E0E0E0;
+    font-size: 13px;
+    background-color: transparent;
+
+}
 
 .main-footer {
-    padding-top: 70px;
+    padding-top: 60px;
     background-color: #f6f7f8;
 }
 
@@ -1047,6 +1082,10 @@ tr td:last-child span {
 
     .statistics-all {
         display: none;
+    }
+
+    .statistics-contract__button {
+        display: block;
     }
 }
 
