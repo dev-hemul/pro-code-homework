@@ -468,7 +468,7 @@ main {
 }
 
 .card-item__graph {
-   align-self: flex-end;
+    align-self: flex-end;
     transition: 1s linear;
 }
 
@@ -636,7 +636,7 @@ main {
     left: -3px;
     width: 6px;
     height: 6px;
-    background: linear-gradient(180.00deg, rgb(45, 156, 219),rgb(37, 95, 128) 100%);
+    background: linear-gradient(180.00deg, rgb(45, 156, 219), rgb(37, 95, 128) 100%);
     border-radius: 50%;
 }
 
@@ -733,7 +733,6 @@ main {
 }
 
 
-
 .statistics-account-title {
     margin: 0;
     margin-bottom: 14px;
@@ -826,7 +825,7 @@ th span::before {
 }
 
 th span::after {
-   content: '';
+    content: '';
     position: absolute;
     top: 10px;
     right: -10px;
@@ -858,7 +857,7 @@ th span::after {
 }
 
 tr:not(:last-child) td {
-    border-bottom: 1px solid rgba(130,130,130, 0.3);
+    border-bottom: 1px solid rgba(130, 130, 130, 0.3);
 }
 
 .btc-v1 td,
@@ -936,7 +935,7 @@ tr td:last-child span {
 }
 
 .statistics-contract__title {
-  margin: 0;
+    margin: 0;
     margin-bottom: 9px;
     font-size: 15px;
     line-height: 18px;
@@ -965,8 +964,7 @@ tr td:last-child span {
 }
 
 .statistics-contract-name,
-.statistics-contract-speed
-{
+.statistics-contract-speed {
     font-size: 15px;
     font-weight: 500;
 }
@@ -1032,16 +1030,20 @@ tr td:last-child span {
 
 @media screen and (max-width: 576px) {
     .site-navigation {
+        width: 100%;
         margin-bottom: 20px;
     }
 
     .nav-wrapper {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 
     .main-navigation {
-        display: block;
-        margin-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 
     .main-navigation__item > a {
@@ -1052,7 +1054,6 @@ tr td:last-child span {
     }
 
 
-
     .main-navigation__item > a::before {
         left: 30px;
     }
@@ -1060,11 +1061,13 @@ tr td:last-child span {
     .main-navigation__item {
         margin-right: 0;
         margin-bottom: 15px;
+        width: 100%;
     }
 
     .user-navigation {
-       margin: 0 auto;
-        margin-bottom: 15px;
+        margin: 0 auto;
+        order: -1;
+        margin-bottom: 40px;
     }
 
     .main-balance__accruals-balance {
@@ -1072,8 +1075,7 @@ tr td:last-child span {
     }
 
     .main-balance__accruals-balance img,
-    .accruals-balance__title
-    {
+    .accruals-balance__title {
         width: 100%;
     }
 
@@ -1125,7 +1127,7 @@ tr td:last-child span {
     }
 
     .main-balance__list {
-       justify-content: space-between;
+        justify-content: space-between;
     }
 
     .statistics {
@@ -1140,14 +1142,14 @@ tr td:last-child span {
         display: block;
     }
 
-     .statistics-account-list__item {
+    .statistics-account-list__item {
         display: block;
-         margin-right: 0;
+        margin-right: 0;
     }
 
-     .statistics-account-list__item button {
-         width: 100%;
-     }
+    .statistics-account-list__item button {
+        width: 100%;
+    }
 
     .statistics-account-list__item-current button {
         width: 100%;
