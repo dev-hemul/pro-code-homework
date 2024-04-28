@@ -1171,11 +1171,15 @@ tr td:last-child span {
     }
 
     .statistics-all {
+        width: auto;
+    }
+
+    .table-wrapper {
         margin-bottom: 20px;
-        width: 100%;
-        overflow-x: auto;
+        overflow-x: scroll;
         white-space: nowrap;
     }
+
 
     .statistics-contract__list {
         display: block;
