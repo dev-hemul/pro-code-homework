@@ -1073,6 +1073,7 @@ tr td:last-child span {
 
     .main-balance__accruals-balance {
         margin-right: 0;
+        margin-bottom: 20px;
     }
 
     .main-balance__accruals-balance img,
@@ -1095,6 +1096,10 @@ tr td:last-child span {
 
     .growth-chart-wrapper {
         display: block;
+    }
+
+    .profitability-forecast__title {
+        margin-bottom: 20px;
     }
 
     .crypto-title {
@@ -1166,7 +1171,10 @@ tr td:last-child span {
     }
 
     .statistics-all {
-        display: none;
+        margin-bottom: 20px;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
     }
 
     .statistics-contract__list {
@@ -1203,7 +1211,7 @@ tr td:last-child span {
     }
 
     .profitability-forecast__list {
-       display: block;
+        display: block;
         padding-bottom: 14px;
     }
 
@@ -1218,7 +1226,7 @@ tr td:last-child span {
     }
 
     .statistics-contract-item {
-      display: block;
+        display: block;
     }
 }
 
