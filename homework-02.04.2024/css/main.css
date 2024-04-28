@@ -1196,14 +1196,17 @@ tr td:last-child span {
         margin-bottom: 15px;
     }
 
-    .statistics-all {
-        width: auto;
-    }
-
     .table-wrapper {
         margin-bottom: 20px;
-        overflow-x: scroll;
+        overflow: scroll;
         white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        width: 500px;
+        height: 230px;
+    }
+
+    .statistics-all {
+        width: 100%;
     }
 
 
@@ -1219,6 +1222,184 @@ tr td:last-child span {
 
     .statistics-contract__button {
         display: block;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 1315px){
+    .nav-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .site-navigation {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .main-navigation {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+
+    .main-navigation__item {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .main-navigation a {
+        display: flex;
+        justify-content: center;
+    }
+
+    .main-navigation__item a {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .main-navigation__item > a::before {
+        left: 160px;
+    }
+
+    .user-navigation {
+        justify-self: center;
+        padding-top: 20px;
+        padding-bottom: 40px;
+        order: -1;
+    }
+
+    .crypto-wrapper {
+        align-items: center;
+    }
+
+    .crypto-balance {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .crypto-title {
+        margin-bottom: 40px;
+    }
+
+    .crypto-balance {
+        margin-bottom: 20px;
+        flex-grow: 1;
+    }
+
+    .add-currency {
+        margin: 0 auto;
+        margin-bottom: 40px;
+    }
+
+    .crypto-balance__list {
+        flex-grow: 1;
+    }
+
+    .crypto-balance__item {
+        margin-bottom: 20px;
+    }
+
+    .card-list {
+        grid-template-columns: repeat(auto-fill, minmax(290px, 1fr) );
+    }
+
+    .main-balance__list {
+        justify-content: center;
+    }
+
+    .main-balance-item {
+        margin-right: 0;
+    }
+
+    .growth-chart-wrapper {
+        flex-wrap: wrap;
+    }
+
+    .main-balance__accruals-balance {
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    .main-balance__forecast {
+        flex-grow: 1;
+    }
+
+    .profitability-forecast__list {
+        display: flex;
+    }
+
+    .profitability-list__item {
+        display: block;
+        margin-right: 20px;
+    }
+
+    .statistics-account {
+        margin-right: 0;
+    }
+
+    .statistics-account-list__item {
+        margin-bottom: 20px;
+    }
+
+
+
+    .table-wrapper {
+        margin-bottom: 20px;
+        overflow: scroll;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        height: 230px;
+    }
+
+    .statistics-all {
+        width: 100%;
+    }
+
+    .statistics-contracts {
+        width: 100%;
+    }
+
+    .statistics-contract__list {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .statistics-contract-item {
+        display: block;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .table-wrapper {
+        margin: 0 auto;
+        margin-bottom: 20px;
+        overflow: scroll;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        width: 500px;
+        height: 230px;
+    }
+
+    .statistics-all {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .table-wrapper {
+        margin: 0 auto;
+        margin-bottom: 20px;
+        overflow: scroll;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        width: 250px;
+        height: 230px;
+    }
+
+    .statistics-all {
+        width: 100%;
     }
 }
 
