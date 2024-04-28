@@ -1387,14 +1387,14 @@ tr td:last-child span {
     }
 }
 
-@media screen and (max-width: 570px) {
+@media screen and (max-width: 575px) {
     .table-wrapper {
         margin: 0 auto;
         margin-bottom: 20px;
         overflow: scroll;
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
-        width: 250px;
+        width: auto;
         height: 230px;
     }
 
