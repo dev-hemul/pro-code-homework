@@ -1341,8 +1341,6 @@ tr td:last-child span {
         margin-bottom: 20px;
     }
 
-
-
     .table-wrapper {
         margin-bottom: 20px;
         overflow: scroll;
@@ -1402,8 +1400,6 @@ tr td:last-child span {
         width: 100%;
     }
 }
-
-
 
 @media screen and (min-width: 1400px) {
     .card-list {
