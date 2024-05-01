@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #D3D3D3;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 50px;
+}
+
+.gex {
+    position: relative;
+    min-width: 280px;
+	height: 280px;
+	background: darkgreen;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    opacity: 0.8;
+}
+
+.gex::before {
+    content: 'ХАІ';
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    color: violet;
+    font-weight: 700;
+}
+
+.gex::after {
+    content: '1930 р.';
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: 700;
+    color: violet;
+}
+
+.quotes {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+.quotes::before {
+    content: '"';
+    color: red;
+    padding-right: 5px;
+}
+
+.quotes::after {
+    content: '"';
+    color: red;
+    padding-left: 5px;
+}
