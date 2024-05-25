@@ -22,7 +22,7 @@ form_button.addEventListener("click", (evt) => {
 		}
 
 		setTimeout(time_pause, 1400);
-		setTimeout(err2_close, 4000);
+		setTimeout(err2_close, 3500);
 
 	} else if (input_accept.value === 'так' && input_name.value === '') {
 		function time_pause() {
@@ -35,7 +35,7 @@ form_button.addEventListener("click", (evt) => {
 			form_button.style.marginTop = "15px";
 		}
 		setTimeout(time_pause, 1400);
-		setTimeout(err_close, 4000);
+		setTimeout(err_close, 3500);
 
 	} else if (input_accept.value === 'Так' && input_name.value === '') {
 		err.style.display = "block";
@@ -46,7 +46,7 @@ form_button.addEventListener("click", (evt) => {
 			form_button.style.marginTop = "15px";
 		}
 
-		setTimeout(err_close, 4000);
+		setTimeout(err_close, 3500);
 		
 	} else {
 		form_button.style.marginTop = "50px";
