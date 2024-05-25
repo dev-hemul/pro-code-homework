@@ -28,9 +28,11 @@ form_button.addEventListener("click", (evt) => {
 		function close() {
 			success.style.display = "none";
 			form_button.style.marginTop = "15px";
+			input_name.value = '';
+			input_accept.value = '';
 		}
 
-		setTimeout(close, 5000);
+		setTimeout(close, 2000);
 	}
 });
 
