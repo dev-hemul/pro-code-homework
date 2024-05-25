@@ -5,31 +5,37 @@ let err = document.querySelector(".err");
 let err_2 = document.querySelector(".err-2");
 let success = document.querySelector(".success");
 
-success.classList.add()
-
-
 form_button.addEventListener("click", (evt) => {
 	evt.preventDefault();
 	if (input_accept.value !== 'так' && input_accept.value !== 'Так') {
-		err_2.style.display = "block";
+		function time_pause() {
+			err_2.style.display = "block";
+		}
+
 		form_button.style.marginTop = "70px";
+
 
 		function err2_close() {
 			err_2.style.display = "none";
 			form_button.style.marginTop = "15px";
+			input_accept.value = '';
 		}
 
-		setTimeout(err2_close, 2000);
+		setTimeout(time_pause, 1400);
+		setTimeout(err2_close, 4000);
 
 	} else if (input_accept.value === 'так' && input_name.value === '') {
-		err.style.display = "block";
-		form_button.style.marginTop = "70px";
+		function time_pause() {
+			err.style.display = "block";
+		}
+
+		form_button.style.marginTop = "50px";
 		function err_close() {
 			err.style.display = "none";
 			form_button.style.marginTop = "15px";
 		}
-
-		setTimeout(err_close, 2000);
+		setTimeout(time_pause, 1400);
+		setTimeout(err_close, 4000);
 
 	} else if (input_accept.value === 'Так' && input_name.value === '') {
 		err.style.display = "block";
@@ -40,14 +46,14 @@ form_button.addEventListener("click", (evt) => {
 			form_button.style.marginTop = "15px";
 		}
 
-		setTimeout(err_close, 2000);
+		setTimeout(err_close, 4000);
 		
 	} else {
-		err.style.display = "none";
-		err_2.style.display = "none";
-		success.style.display = "block";
 		form_button.style.marginTop = "50px";
 
+		function time_pause() {
+			success.style.display = "block";
+		}
 		function close_sucss() {
 			success.style.display = "none";
 			form_button.style.marginTop = "15px";
@@ -55,7 +61,8 @@ form_button.addEventListener("click", (evt) => {
 			input_accept.value = '';
 		}
 
-		setTimeout(close_sucss, 2000);
+		setTimeout(time_pause, 1400)
+		setTimeout(close_sucss, 4000);
 	}
 });
 
