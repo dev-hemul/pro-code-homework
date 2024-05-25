@@ -13,26 +13,49 @@ form_button.addEventListener("click", (evt) => {
 	if (input_accept.value !== 'так' && input_accept.value !== 'Так') {
 		err_2.style.display = "block";
 		form_button.style.marginTop = "70px";
-		console.log(err);
+
+		function err2_close() {
+			err_2.style.display = "none";
+			form_button.style.marginTop = "15px";
+		}
+
+		setTimeout(err2_close, 2000);
+
 	} else if (input_accept.value === 'так' && input_name.value === '') {
 		err.style.display = "block";
 		form_button.style.marginTop = "70px";
+		function err_close() {
+			err.style.display = "none";
+			form_button.style.marginTop = "15px";
+		}
+
+		setTimeout(err_close, 2000);
+
 	} else if (input_accept.value === 'Так' && input_name.value === '') {
 		err.style.display = "block";
 		form_button.style.marginTop = "70px";
+
+		function err_close() {
+			err.style.display = "none";
+			form_button.style.marginTop = "15px";
+		}
+
+		setTimeout(err_close, 2000);
+		
 	} else {
 		err.style.display = "none";
 		err_2.style.display = "none";
 		success.style.display = "block";
 		form_button.style.marginTop = "50px";
-		function close() {
+
+		function close_sucss() {
 			success.style.display = "none";
 			form_button.style.marginTop = "15px";
 			input_name.value = '';
 			input_accept.value = '';
 		}
 
-		setTimeout(close, 2000);
+		setTimeout(close_sucss, 2000);
 	}
 });
 
