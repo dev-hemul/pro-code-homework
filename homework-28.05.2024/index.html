@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма з помилкою</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="form-wrapper">
+    <form class="form" action="" method="get">
+        <label class="form__label-name">
+            <input class="form__input-name form-input" name="user-name" type="text" placeholder="Напишіть цифрою скільки у вас грошей">
+        </label>
+        <label class="form__label-accept">
+                <input class="form__input-accept form-input" name="word" type="text" placeholder="Напишіть цифрою скільки ви готові витратити">
+        </label>
+        <div class="err">У вас не вистачає коштів!</div>
+        <div class="err-2">У вас нічого не залишиться!</div>
+        <div class="success">У вас вистачає грошей)</div>
+    <button class="form__button" type="submit">Витратити!</button>
+    </form>
+</div>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
