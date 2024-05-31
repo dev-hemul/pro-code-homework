@@ -65,7 +65,6 @@ input[type=text]:focus {
     text-transform: uppercase;
     animation-name: err;
     animation-duration: 2.5s;
-    animation-fill-mode: backwards;
     transition-timing-function: ease;
 }
 
@@ -74,12 +73,11 @@ input[type=text]:focus {
     display: none;
     width: 300px;
     margin-bottom: 15px;
-    color: rgba(255, 0, 0, 1);
+    color: orange;
     font-weight: 700;
     text-transform: uppercase;
     animation-name: err;
     animation-duration: 2.5s;
-    animation-fill-mode: backwards;
     transition-timing-function: ease;
 }
 
