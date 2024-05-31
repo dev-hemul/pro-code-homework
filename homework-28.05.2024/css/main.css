@@ -76,9 +76,6 @@ input[type=text]:focus {
     color: orange;
     font-weight: 700;
     text-transform: uppercase;
-    animation-name: err;
-    animation-duration: 2.5s;
-    transition-timing-function: ease;
 }
 
 .success {
