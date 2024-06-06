@@ -3,7 +3,6 @@ let button = document.querySelector('.form__button');
 let err = document.querySelector('.err');
 let err_2 = document.querySelector('.err-2');
 
-
 button.addEventListener('click', (evt) => {
 	evt.preventDefault();
 	let moneyInput = document.querySelector('.form__input-name');
@@ -20,6 +19,7 @@ button.addEventListener('click', (evt) => {
 			moneyInput.value = '';
 			readyToUseInput.value = '';
 		}
+
 
 		function close() {
 			button.style.marginTop = "15px";
@@ -62,6 +62,8 @@ button.addEventListener('click', (evt) => {
 			moneyInput.value = '';
 			readyToUseInput.value = '';
 		}
+
+
 
 		function close() {
 			button.style.marginTop = "15px";
