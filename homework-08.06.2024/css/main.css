@@ -32,3 +32,34 @@
     background-color:#0a0a23;
     color: #fff;
 }
+
+.modal-open {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    width: 30%;
+    height: 30%;
+    transform: translate(-50%, -50%);
+    background-color: darkgray;
+    animation-name: modal-show;
+    animation-duration: 1s;
+}
+
+.year-result {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 26px;
+    color: black;
+}
+
+@keyframes modal-show {
+    from {
+        opacity: 0;
+    }
+
+    to  {
+        opacity: 1;
+    }
+}
