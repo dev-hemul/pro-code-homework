@@ -10,11 +10,11 @@ body {
 }
 
 .battery-mode {
-    fill: darkblue;
+    fill: red;
 }
 
 .battery-mode-active {
-    fill: red;
+    fill: darkgreen;
 }
 
 .switch {
@@ -132,7 +132,7 @@ body {
 	}
 
 	.switch-check:checked + .switch-label:after {
-        background-color: rgb(144, 220, 255);
+        background-color: darkgreen;
 		border: 1px solid #004562;
 		box-shadow: 0 2px 5px  rgba(81,208,255,0.5), 0 0 5px rgba(210,243,255,0.5) inset;
 	}
