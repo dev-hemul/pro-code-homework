@@ -10,11 +10,13 @@ body {
 }
 
 .battery-mode {
-    fill: red;
+    fill: darkred;
+	transition: 6s;
 }
 
 .battery-mode-active {
-    fill: darkgreen;
+    fill: #009900;
+	transition: 6s;
 }
 
 .switch {
@@ -136,4 +138,3 @@ body {
 		border: 1px solid #004562;
 		box-shadow: 0 2px 5px  rgba(81,208,255,0.5), 0 0 5px rgba(210,243,255,0.5) inset;
 	}
-
