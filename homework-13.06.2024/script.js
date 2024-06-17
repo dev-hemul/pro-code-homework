@@ -3,6 +3,7 @@ let resistor_number = document.querySelector(".resistor-number");
 let button_plus = document.querySelector(".button-plus");
 let button_minus = document.querySelector(".button-minus");
 let fire_script = document.querySelector(".fire-wrapper");
+let amper_unit = document.querySelector(".amper-unit");
 
 
 button_plus.addEventListener("click", function() {
@@ -18,7 +19,7 @@ button_minus.addEventListener("click", function() {
 	let resistor_to_number = +resistor_number.innerText;
 	resistor_to_number -= 1;
 	if (resistor_to_number <= 0) {
-        resistor_to_number = 1;
+        resistor_to_number = 0;
         fire_script.style.opacity = "1";
     } else {
         fire_script.style.opacity = "0";
