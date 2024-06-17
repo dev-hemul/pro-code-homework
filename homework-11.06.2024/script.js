@@ -1,5 +1,4 @@
 let battery = document.querySelector('.battery');
-let battery_mode = document.querySelector('.battery-mode');
 
 document.querySelectorAll(".switch-check").forEach(switchCheck => {
     switchCheck.addEventListener("change", function() {

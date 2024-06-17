@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main-wrapper {
+    height: 100vh;
+    display: grid;
+    border: 1px solid red;
+}
+
+.battery {
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    grid-template-rows: 100px 1fr;
+    justify-items: center;
+    align-items: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 300px;
+    height: 200px;
+    border: 2px solid black;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    background-color: #fff;
+}
+
+.minus {
+    align-self: center;
+    font-size: 40px;
+}
+
+.volt {
+    font-size: 26px;
+}
+
+.plus {
+    font-size: 40px;
+}
+
+.amp {
+    display: flex;
+    justify-content: center;
+    grid-column: 1/-1;
+    justify-self: center;
+    width: 150px;
+    height: 50px;
+    font-weight: bold;
+    border: 1px solid black;
+    background-color: lightpink;
+}
+
+.amper-result {
+    font-size: 16px;
+}
+
+.line {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 500px;
+    height: 300px;
+    border: 1px solid grey;
+    background-color: transparent;
+    transform: translate(-50%, -50%);
+}
+
+.resistor {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    width: 100px;
+    height: 50px;
+    border: 1px solid black;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+}
+
+.resistor-result {
+    font-weight: bold;
+    font-size: 16px;
+}
