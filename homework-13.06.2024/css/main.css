@@ -6,7 +6,6 @@ body {
 .main-wrapper {
     height: 100vh;
     display: grid;
-    border: 1px solid red;
 }
 
 .battery {
@@ -76,7 +75,7 @@ body {
     height: 50px;
     border: 1px solid black;
     transform: translate(-50%, -50%);
-    background-color: #ffffff;
+    background-color: lightskyblue;
 }
 
 .resistor-result {
