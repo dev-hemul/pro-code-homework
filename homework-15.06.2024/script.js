@@ -17,7 +17,7 @@ form.addEventListener("submit", event => {
 })
 
 let displayOutput = (arr) => {
-            output.innerHTML = ''; // очищаем текущий вывод
+            output.innerHTML = '';
 
             arr.forEach(item => {
                 let li = document.createElement("li");
