@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Список студентів</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<main>
+    <div class="wrapper">
+        <form class="form" action="" method="get">
+            <label class="form__label">
+                <input class="form__input user-pib" type="text" name="user-fio" placeholder="Введіть ПІБ студента"
+                       required>
+            </label>
+            <div class="form__button-wrapper">
+                <button class="form__submit" type="submit">Відправити</button>
+                <button class="form__sort" type="button">Сортувати</button>
+            </div>
+
+            <ol class="output"></ol>
+
+        </form>
+
+
+
+    </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
