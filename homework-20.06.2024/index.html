@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Список студентів</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<main>
+    <div class="container pt-4 pt-5">
+
+        <form action="#">
+            <div class="mb-3">
+            <input class="form-control" type="text" id="name-pib" placeholder="Ім'я" required>
+            </div>
+            <div class="mb-3">
+            <input class="form-control" type="number" id="age-inp" placeholder="Вік" required>
+            </div>
+            <div class="mb-3">
+                <select class="form-control" name="gender" id="gender-select" required>
+                    <option selected disabled>Виберіть стать</option>
+                    <option value="">Чоловіча</option>
+                    <option value="">Жіноча</option>
+                </select>
+            </div>
+            <div class="mb-3">
+            <input class="form-control" type="date" id="date-inp" placeholder="Дата народження" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Добавити</button>
+        </form>
+
+    </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
