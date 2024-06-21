@@ -1,4 +1,4 @@
-function updatePlaceholderVisibility() {
+let updatePlaceholderVisibility = () => {
       const dateInput = document.getElementById('date-input');
       const datePlaceholder = document.querySelector('.date-placeholder');
       if (window.innerWidth <= 576 && !dateInput.value) {
