@@ -1,43 +1,96 @@
-  let form = document.querySelector('form');
-  let pib = document.getElementById("pib-inp");
-  let age = document.getElementById("age-inp");
-  let gender = document.getElementById("gender-select");
-  let birthday = document.getElementById("birthday-input");
+let form = document.querySelector('.form');
+let pib = document.getElementById("pib-inp");
+let age = document.getElementById("age-inp");
+let gender = document.getElementById("gender-select");
+let birthday = document.getElementById("birthday-input");
+let arrow = document.querySelector(".arrow");
+let sortAZ = document.querySelector(".sortAZ");
 
-  let students = [];
+let students = [];
 
-  form.addEventListener("submit", function (evt) {
-    evt.preventDefault();
+form.addEventListener("submit", function (evt) {
+	evt.preventDefault();
 
-    students.push({
-      id: (students.length + 1).toString(),
-      pib: pib.value,
-      age: age.value,
-      gender: gender.value,
-      birthday: birthday.value
-    });
+	students.push({
+		id: (students.length + 1).toString(),
+		pib: pib.value,
+		age: age.value,
+		gender: gender.value,
+		birthday: birthday.value
+	});
 
-    pib.value = '';
-    age.value = '';
-    gender.value = '';
-    /*birthday.value = '';*/
+	pib.value = '';
+	age.value = '';
+	gender.value = '';
+	birthday.value = '';
 
-    const studTable = document.getElementById('stud-table');
-    studTable.innerHTML = '';
+	const studTable = document.getElementById('stud-table');
+	studTable.innerHTML = '';
 
-    for (const student of students) {
-      const tr = document.createElement('tr');
-      const tdPib = document.createElement('td');
-      const tdAge = document.createElement('td');
-      const tdGender = document.createElement('td');
-      const tdBirthday = document.createElement('td');
+	for (const student of students) {
+		const tr = document.createElement('tr');
+		const tdPib = document.createElement('td');
+		const tdAge = document.createElement('td');
+		const tdGender = document.createElement('td');
+		const tdBirthday = document.createElement('td');
 
-      tdPib.textContent = student.pib;
-      tdAge.textContent = student.age;
-      tdGender.textContent = student.gender;
-      tdBirthday.textContent = student.birthday;
+		tdPib.textContent = student.pib;
+		tdAge.textContent = student.age;
+		tdGender.textContent = student.gender;
+		tdBirthday.textContent = student.birthday;
 
-      tr.append(tdPib, tdAge, tdGender, tdBirthday);
-      studTable.append(tr);
-    }
-  });
+		tr.append(tdPib, tdAge, tdGender, tdBirthday);
+		studTable.append(tr);
+	}
+
+});
+
+arrow.addEventListener("click", function (evt) {
+	evt.preventDefault();
+  students.reverse();
+	const studTable = document.getElementById('stud-table');
+	studTable.innerHTML = '';
+
+	for (const student of students) {
+		const tr = document.createElement('tr');
+		const tdPib = document.createElement('td');
+		const tdAge = document.createElement('td');
+		const tdGender = document.createElement('td');
+		const tdBirthday = document.createElement('td');
+
+		tdPib.textContent = student.pib;
+		tdAge.textContent = student.age;
+		tdGender.textContent = student.gender;
+		tdBirthday.textContent = student.birthday;
+
+		tr.append(tdPib, tdAge, tdGender, tdBirthday);
+		studTable.append(tr);
+	}
+});
+
+sortAZ.addEventListener("click", function (evt) {
+	evt.preventDefault();
+	students.sort((a, b) => a.pib.localeCompare(b.pib));
+	const studTable = document.getElementById('stud-table');
+	studTable.innerHTML = '';
+
+	for (const student of students) {
+		const tr = document.createElement('tr');
+		const tdPib = document.createElement('td');
+		const tdAge = document.createElement('td');
+		const tdGender = document.createElement('td');
+		const tdBirthday = document.createElement('td');
+
+		tdPib.textContent = student.pib;
+		tdAge.textContent = student.age;
+		tdGender.textContent = student.gender;
+		tdBirthday.textContent = student.birthday;
+
+		tr.append(tdPib, tdAge, tdGender, tdBirthday);
+		studTable.append(tr);
+	}
+});
+
+
+
+

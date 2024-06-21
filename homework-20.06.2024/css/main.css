@@ -1,3 +1,47 @@
+.table.table-striped th {
+    padding-left: 1.5rem;
+}
+
+.table.table-striped td {
+    padding-left: 1.5rem;
+}
+
+.arrow {
+    position: relative;
+}
+
+.arrow::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #6E18C0;
+    border-right: 2px solid #6E18C0;
+    transform: rotate(-45deg);
+}
+
+.arrow::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #6E18C0;
+    border-right: 2px solid #6E18C0;
+    transform: rotate(135deg);
+}
+
+.sort-AZ {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 60px;
+    background-image: url("/img/sort-az.png");
+}
+
 .adaptive {
     display: none;
 }

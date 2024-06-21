@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Список студентів</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -15,13 +16,13 @@
 
         <form class="form mb-5" action="#">
             <div class="mb-3">
-            <input class="form-control" type="text" id="pib-inp" placeholder="ПІБ" required>
+                <input class="form-control" type="text" id="pib-inp" placeholder="ПІБ" required>
             </div>
             <div class="mb-3">
-            <input class="form-control" type="number" id="age-inp" placeholder="Вік" required>
+                <input class="form-control" type="number" id="age-inp" placeholder="Вік">
             </div>
             <div class="mb-3">
-                <select class="form-control" name="gender" id="gender-select" required>
+                <select class="form-control" name="gender" id="gender-select">
                     <option value="" selected disabled>Виберіть стать</option>
                     <option value="Чоловіча">Чоловіча</option>
                     <option value="Жіноча">Жіноча</option>
@@ -29,15 +30,18 @@
             </div>
             <div class="mb-3">
                 <label class="adaptive mb-1 ms-2" for="birthday-input">Виберіть дату народження</label>
-                <input class="form-control date-input" type="date" id="birthday-input" placeholder="" required>
+                <input class="form-control date-input" type="date" id="birthday-input" placeholder="">
             </div>
             <button type="submit" class="btn btn-primary">Добавити</button>
         </form>
 
         <table class="table table-striped">
             <thead>
+
             <tr>
-                <th>ПІБ</th>
+                <th class="arrow">ПІБ
+                    <span class="sort-AZ"></span>
+                </th>
                 <th>Вік</th>
                 <th>Стать</th>
                 <th>Дата народження</th>
