@@ -72,7 +72,7 @@ sortAZ.addEventListener("click", function (evt) {
 	evt.preventDefault();
 	const studTable = document.getElementById('stud-table');
 	studTable.innerHTML = '';
-	students.sort((a, b) => b.pib.localeCompare(a.pib));
+	students.sort((a, b) => a.pib.localeCompare(b.pib));
 
 	for (const student of students) {
 		const tr = document.createElement('tr');
