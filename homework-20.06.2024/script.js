@@ -4,7 +4,7 @@ let age = document.getElementById("age-inp");
 let gender = document.getElementById("gender-select");
 let birthday = document.getElementById("birthday-input");
 let arrow = document.querySelector(".arrow");
-let sortAZ = document.querySelector(".sortAZ");
+let sortAZ = document.querySelector(".sort-AZ");
 
 let students = [];
 
@@ -70,9 +70,9 @@ arrow.addEventListener("click", function (evt) {
 
 sortAZ.addEventListener("click", function (evt) {
 	evt.preventDefault();
-	students.sort((a, b) => a.pib.localeCompare(b.pib));
 	const studTable = document.getElementById('stud-table');
 	studTable.innerHTML = '';
+	students.sort((a, b) => b.pib.localeCompare(a.pib));
 
 	for (const student of students) {
 		const tr = document.createElement('tr');
