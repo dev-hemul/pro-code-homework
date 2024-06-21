@@ -1,0 +1,9 @@
+.adaptive-hide {
+    display: none;
+}
+
+@media  screen and (max-width: 576px){
+    .adaptive-hide {
+        display: block;
+    }
+}
