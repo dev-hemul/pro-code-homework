@@ -1,26 +1,45 @@
-let updatePlaceholderVisibility = () => {
-      const dateInput = document.getElementById('date-input');
-      const datePlaceholder = document.querySelector('.date-placeholder');
-      if (window.innerWidth <= 576 && !dateInput.value) {
-        datePlaceholder.style.display = 'block';
-      } else {
-        datePlaceholder.style.display = 'none';
-      }
+document.addEventListener('DOMContentLoaded', () => {
+  let form = document.querySelector('form');
+  let pib = document.getElementById("pib-inp");
+  let age = document.getElementById("age-inp");
+  let gender = document.getElementById("gender-select");
+  let birthday = document.getElementById("birthday-input");
+
+  let students = [];
+
+  form.addEventListener("submit", function (evt) {
+    evt.preventDefault();
+
+    students.push({
+      id: (students.length + 1).toString(),
+      pib: pib.value,
+      age: age.value,
+      gender: gender.value,
+      birthday: birthday.value
+    });
+
+    pib.value = '';
+    age.value = '';
+    gender.value = '';
+    birthday.value = '';
+
+    const studTable = document.getElementById('stud-table');
+    studTable.innerHTML = '';
+
+    for (const student of students) {
+      const tr = document.createElement('tr');
+      const tdPib = document.createElement('td');
+      const tdAge = document.createElement('td');
+      const tdGender = document.createElement('td');
+      const tdBirthday = document.createElement('td');
+
+      tdPib.textContent = student.pib;
+      tdAge.textContent = student.age;
+      tdGender.textContent = student.gender;
+      tdBirthday.textContent = student.birthday;
+
+      tr.append(tdPib, tdAge, tdGender, tdBirthday);
+      studTable.append(tr);
     }
-
-    // Обновить видимость при загрузке страницы и изменении размера окна
-    window.addEventListener('load', updatePlaceholderVisibility);
-    window.addEventListener('resize', updatePlaceholderVisibility);
-
-    const dateInput = document.getElementById('date-input');
-    const datePlaceholder = document.querySelector('.date-placeholder');
-
-    dateInput.addEventListener('focus', () => {
-      datePlaceholder.style.display = 'none';
-    });
-
-    dateInput.addEventListener('blur', () => {
-      if (!dateInput.value && window.innerWidth <= 576) {
-        datePlaceholder.style.display = 'block';
-      }
-    });
+  });
+});

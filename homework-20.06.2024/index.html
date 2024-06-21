@@ -13,30 +13,43 @@
 <main>
     <div class="container pt-4 pt-5">
 
-        <form action="#">
+        <form class="form mb-5" action="#">
             <div class="mb-3">
-            <input class="form-control" type="text" id="name-pib" placeholder="Ім'я" required>
+            <input class="form-control" type="text" id="pib-inp" placeholder="ПІБ" required>
             </div>
             <div class="mb-3">
-            <input class="form-control" type="number" id="age-inp" placeholder="Вік" required>
+            <input class="form-control" type="number" id="age-inp" placeholder="Вік">
             </div>
             <div class="mb-3">
-                <select class="form-control" name="gender" id="gender-select" required>
-                    <option selected disabled>Виберіть стать</option>
-                    <option value="">Чоловіча</option>
-                    <option value="">Жіноча</option>
+                <select class="form-control" name="gender" id="gender-select">
+                    <option value="" selected disabled>Виберіть стать</option>
+                    <option value="Чоловіча">Чоловіча</option>
+                    <option value="Жіноча">Жіноча</option>
                 </select>
             </div>
             <div class="date-input-wrapper mb-3">
-                <input class="form-control date-input" type="date" id="date-input" placeholder="" required>
+                <input class="form-control date-input" type="date" id="birthday-input" placeholder="">
                 <span class="date-placeholder">Виберіть дату</span>
             </div>
             <button type="submit" class="btn btn-primary">Добавити</button>
         </form>
 
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ПІБ</th>
+                <th>Вік</th>
+                <th>Стать</th>
+                <th>Дата народження</th>
+            </tr>
+            </thead>
+            <tbody id="stud-table"></tbody>
+        </table>
+
     </div>
 </main>
 
+<script src="date-form.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
