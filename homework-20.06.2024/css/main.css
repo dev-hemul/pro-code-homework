@@ -1,9 +1,21 @@
-.adaptive-hide {
-    display: none;
-}
-
-@media  screen and (max-width: 576px){
-    .adaptive-hide {
-        display: block;
+.date-input-wrapper {
+      position: relative;
     }
-}
+    .date-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 8px;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+    input:focus + .date-placeholder,
+    input:not(:placeholder-shown) + .date-placeholder {
+      display: none;
+    }
+
+@media (min-width: 577px) {
+      .date-placeholder {
+        display: none;
+      }
+    }
