@@ -16,9 +16,7 @@ function updatePlaceholderVisibility() {
     const datePlaceholder = document.querySelector('.date-placeholder');
 
     dateInput.addEventListener('focus', () => {
-      if (window.innerWidth <= 576) {
-        datePlaceholder.style.display = 'none';
-      }
+      datePlaceholder.style.display = 'none';
     });
 
     dateInput.addEventListener('blur', () => {
