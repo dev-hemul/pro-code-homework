@@ -1,4 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
   let form = document.querySelector('form');
   let pib = document.getElementById("pib-inp");
   let age = document.getElementById("age-inp");
@@ -21,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     pib.value = '';
     age.value = '';
     gender.value = '';
-    birthday.value = '';
+    /*birthday.value = '';*/
 
     const studTable = document.getElementById('stud-table');
     studTable.innerHTML = '';
@@ -42,4 +41,3 @@ document.addEventListener('DOMContentLoaded', () => {
       studTable.append(tr);
     }
   });
-});
