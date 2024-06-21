@@ -18,18 +18,18 @@
             <input class="form-control" type="text" id="pib-inp" placeholder="ПІБ" required>
             </div>
             <div class="mb-3">
-            <input class="form-control" type="number" id="age-inp" placeholder="Вік">
+            <input class="form-control" type="number" id="age-inp" placeholder="Вік" required>
             </div>
             <div class="mb-3">
-                <select class="form-control" name="gender" id="gender-select">
+                <select class="form-control" name="gender" id="gender-select" required>
                     <option value="" selected disabled>Виберіть стать</option>
                     <option value="Чоловіча">Чоловіча</option>
                     <option value="Жіноча">Жіноча</option>
                 </select>
             </div>
             <div class="mb-3">
-                <label class="adaptive mb-1 ms-2" for="birthday-input">Виберіть дату</label>
-                <input class="form-control date-input" type="date" id="birthday-input" placeholder="">
+                <label class="adaptive mb-1 ms-2" for="birthday-input">Виберіть дату народження</label>
+                <input class="form-control date-input" type="date" id="birthday-input" placeholder="" required>
             </div>
             <button type="submit" class="btn btn-primary">Добавити</button>
         </form>
