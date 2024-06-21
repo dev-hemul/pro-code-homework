@@ -6,32 +6,16 @@
     padding-left: 1.5rem;
 }
 
-.arrow {
+.filter {
     position: relative;
 }
 
-.arrow::before {
-    content: '';
+.arrow {
     position: absolute;
-    top: 15px;
-    left: 0;
-    width: 8px;
-    height: 8px;
-    border-top: 2px solid #6E18C0;
-    border-right: 2px solid #6E18C0;
-    transform: rotate(-45deg);
-}
-
-.arrow::after {
-    content: '';
-    position: absolute;
-    top: 20px;
-    left: 0;
-    width: 8px;
-    height: 8px;
-    border-top: 2px solid #6E18C0;
-    border-right: 2px solid #6E18C0;
-    transform: rotate(135deg);
+    left: -5px;
+    background-image: url("../img/sort-alt.png");
+    width: 24px;
+    height: 24px;
 }
 
 .sort-AZ {
