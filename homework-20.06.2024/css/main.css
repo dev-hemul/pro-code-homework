@@ -10,7 +10,7 @@
     position: relative;
 }
 
-.arrow {
+.priority-sort-pib {
     position: absolute;
     left: -5px;
     background-image: url("../img/sort-alt.png");
@@ -18,11 +18,59 @@
     height: 24px;
 }
 
-.sort-AZ {
+.alphabet-sort-pib {
     position: absolute;
     width: 24px;
     height: 24px;
     left: 60px;
+    background-image: url("../img/sort-az.png");
+}
+
+.priority-sort-age {
+    position: absolute;
+    left: -5px;
+    background-image: url("../img/sort-alt.png");
+    width: 24px;
+    height: 24px;
+}
+
+.alphabet-sort-age {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 60px;
+    background-image: url("../img/sort-az.png");
+}
+
+.priority-sort-gender {
+    position: absolute;
+    left: -5px;
+    background-image: url("../img/sort-alt.png");
+    width: 24px;
+    height: 24px;
+}
+
+.alphabet-sort-gender {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 70px;
+    background-image: url("../img/sort-az.png");
+}
+
+.priority-sort-birthday {
+    position: absolute;
+    left: -5px;
+    background-image: url("../img/sort-alt.png");
+    width: 24px;
+    height: 24px;
+}
+
+.alphabet-sort-birthday {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 170px;
     background-image: url("../img/sort-az.png");
 }
 
