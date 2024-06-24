@@ -2,6 +2,7 @@ let red = document.querySelector(".circle-red");
 let orange = document.querySelector(".circle-orange");
 let green = document.querySelector(".circle-green");
 let btn = document.querySelector(".circle");
+let alert = document.querySelector(".alert");
 
 let colors = ["red", "orange", "green", "orange"];
 let currentIndex = 0;
@@ -35,7 +36,7 @@ btn.addEventListener("click", () => {
         currentIndex = 2;
         lastClickTime = currentTime;
     } else {
-        console.log("Зачекайте 5 секунд");
+        alert.style.display = "block";
     }
 });
 
