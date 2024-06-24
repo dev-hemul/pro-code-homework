@@ -125,6 +125,17 @@
     background-color: green;
 }
 
+@media screen and (max-width: 576px) {
+    .container {
+        width: auto;
+    }
+    .wrapper {
+        flex-direction: column;
+        padding-top: 10px;
+        gap: 30px;
+    }
+}
+
 
 
 
