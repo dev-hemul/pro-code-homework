@@ -1,0 +1,131 @@
+.container {
+    width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    padding-top: 100px;
+}
+
+.inline-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    padding-top: 20px;
+    width: 150px;
+    height: 200px;
+    background-color: orange;
+    border-radius: 10px;
+}
+
+.message {
+    display: block;
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+
+.attention {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.circle,
+.inner {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    box-sizing: content-box;
+}
+
+.circle {
+    background-color: #337AB7;
+    padding: 10px;
+    position: relative;
+    box-shadow: inset -20px 20px 20px rgba(0, 0, 0, .2),
+    -20px 20px 30px rgba(0, 0, 0, .3);
+    display: inline-block;
+    margin: 20px auto;
+}
+
+.circle::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    box-shadow: inset -2px 2px 2px #337AB7;
+    border-radius: 50%;
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -3px 3px 6px rgba(0, 0, 0, .3);
+    background: #fff;
+    transition: all .3s ease-in-out;
+}
+
+.outer-rectangle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    padding: 20px;
+    width: 120px;
+    height: 400px;
+    border: 1px solid black;
+    border-radius: 30px;
+    background-color: #3B3C36;
+}
+
+.circle-red {
+    width: 80px;
+    height: 80px;
+    border: 3px solid white;
+    border-radius: 50%;
+
+}
+
+.circle-orange {
+    width: 80px;
+    height: 80px;
+    border: 3px solid white;
+    border-radius: 50%;
+
+}
+
+.circle-green {
+    width: 80px;
+    height: 80px;
+    border: 3px solid white;
+    border-radius: 50%;
+
+}
+
+.active-red {
+    background-color: red;
+}
+
+.active-orange {
+    background-color: orange;
+}
+
+.active-green {
+    background-color: green;
+}
+
+
+
+
+
