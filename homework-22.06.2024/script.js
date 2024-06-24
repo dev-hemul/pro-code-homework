@@ -2,7 +2,7 @@ let red = document.querySelector(".circle-red");
 let orange = document.querySelector(".circle-orange");
 let green = document.querySelector(".circle-green");
 let btn = document.querySelector(".circle");
-let alert = document.querySelector(".alert");
+let alertBox = document.querySelector(".alert");
 
 let colors = ["red", "orange", "green", "orange"];
 let currentIndex = 0;
@@ -30,13 +30,16 @@ let changeColor = () => {
 btn.addEventListener("click", () => {
     let currentTime = new Date().getTime();
     if (currentTime - lastClickTime >= 5000) {
-        green.classList.add("active-green");
         red.classList.remove("active-red");
         orange.classList.remove("active-orange");
+        green.classList.add("active-green");
         currentIndex = 2;
         lastClickTime = currentTime;
     } else {
-        alert.style.display = "block";
+        alertBox.style.display = "block";
+        setTimeout(() => {
+            alertBox.style.display = "none";
+        }, 2000);
     }
 });
 
