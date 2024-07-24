@@ -25,7 +25,7 @@ const server = http.createServer(async (req, res) => {
 		res.setHeader('Content-Type', 'text/javascript; charset=utf-8');
 		res.end(js);
 	}else if (url === '/inc') {
-		num+=1;
+ 		num+=1;
 		res.statusCode = 200;
 		res.setHeader('Content-Type', 'text/plain; charset=utf-8');
 		console.log(num);
