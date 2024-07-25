@@ -1,5 +1,8 @@
 import express from 'express';
 import index from './routes/index.js';
+import about from './routes/about.js';
+import contact from './routes/contact.js';
+
 /*import blogRouter from './routes/blog.js';
 import prodRouter from './routes/prod.js';*/
 
@@ -14,6 +17,8 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 app.use('/', index);
+app.use('/', about);
+app.use('/', contact);
 
 
 

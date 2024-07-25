@@ -1,10 +1,17 @@
 body {
     font-family: "Outfit", sans-serif;
     font-size: 20px;
+}
+
+.page-main {
     background-image: url(background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+
+.inner-page {
+    background-color: lightgrey;
 }
 
 img {
@@ -41,6 +48,16 @@ img {
 .list-item {
     margin-right: 65px;
     text-transform: uppercase;
+}
+
+.list-item a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.list-item a:hover {
+    text-decoration: underline;
+    text-underline-offset: 10px;
 }
 
 .main-container {
@@ -81,9 +98,18 @@ img {
 }
 
 .footer-text {
-    padding: 0 100px;
-    padding-top: 300px;
+    padding: 0;
+    padding-top: 223px;
+    padding-left: 100px;
+    margin: 0;
     line-height: 23px;
+}
+
+.about-page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 @media screen and (max-width: 1200px) {
