@@ -67,8 +67,11 @@ img {
     padding: 0 100px;
 }
 
-.image-container {
-    margin-left: 100px;
+.image {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: -1;
 }
 
 .slogan {
