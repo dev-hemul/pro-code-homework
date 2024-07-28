@@ -18,10 +18,3 @@ app.use('/about', AboutRouter);
 app.use('/contact', ContactRouter);
 
 
-
-/*
-app.use('/blogRouter', blogRouter);
-app.use('/prod', prodRouter);
-*/
-
-
