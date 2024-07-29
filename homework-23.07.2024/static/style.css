@@ -116,6 +116,14 @@ img {
     transform: translate(-50%, -50%);
 }
 
+.err-wrapper {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 @media screen and (max-width: 1200px) {
     .main-container {
         flex-direction: column;
