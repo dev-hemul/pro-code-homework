@@ -1,0 +1,78 @@
+body {
+    background-color: #000000;
+}
+
+.main-title {
+    margin-top: 100px;
+    text-align: center;
+    color: white;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px;
+    padding: 50px;
+}
+
+.card_container {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1),
+                0 6px 20px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card_container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3),
+                0 12px 24px rgba(255, 255, 255, 0.3);
+}
+
+.card_img {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.card-name {
+    font-size: 20px;
+    align-self: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: #c0c0c0;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.producer {
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.year {
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.rating {
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.error-wrapper {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 30px;
+}

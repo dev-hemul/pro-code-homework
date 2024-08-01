@@ -1,0 +1,21 @@
+{
+  "name": "homework-27.07.2024",
+  "version": "1.0.0",
+  "description": "- створити сервер\r - створити запускатор\r - в кінці має бути стартовий шаблон",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www.js",
+    "dev": "nodemon ./bin/www.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0"
+  }
+}

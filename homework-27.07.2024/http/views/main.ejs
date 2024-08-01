@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Список фільмів</title>
+</head>
+<body>
+<h1 class="main-title">Best films by Christopher Nolan</h1>
+<div class="wrapper">
+    <% items.forEach((item) => { %>
+        <div class="card_container">
+            <a class="card_img" href="<%= `/card-films/${item.id}` %>">
+                <img src="<%= item.img %>" width="220" height="325" alt="<%= item.name %>">
+                <span class="card-name"><%= item.name %></span>
+            </a>
+            <span class="producer"><%= item.producer %></span>
+            <span class="year"><%= item.year %></span>
+            <span class="rating">IMDB: <%= item.rating %></span>
+        </div>
+    <% }) %>
+</div>
+
+</body>
+</html>
