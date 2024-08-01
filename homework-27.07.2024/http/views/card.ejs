@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="/style.css">
+    <title><%= item.name %></title>
+</head>
+<body>
+<a class="back" href="/">
+    <img src="/arrow-3.svg" alt="">
+</a>
+<h1 class="main-title"><%= item.name %></h1>
+<div class="wrapper">
+    <div class="card_container">
+        <img class="card_img" src="/<%= item.img %>" width="220" height="325" alt="<%= item.name %>">
+        <span class="card-name"><%= item.name %></span>
+        <span class="producer"><%= item.producer %></span>
+        <span class="year"><%= item.year %></span>
+        <span class="rating">IMDB: <%= item.rating %></span>
+    </div>
+</div>
+</body>
+</html>

@@ -33,7 +33,14 @@ body {
                 0 12px 24px rgba(255, 255, 255, 0.3);
 }
 
+.back {
+    position: fixed;
+    top: 0;
+    left: 10px;
+}
+
 .card_img {
+    position: relative;
     display: flex;
     flex-direction: column;
     text-decoration: none;

@@ -3,6 +3,7 @@ import express from 'express';
 import createHttpError from 'http-errors';
 import logger from 'morgan';
 import mainRouter from './routes/main.js';
+import cardRouter from './routes/card.js';
 
 const server = express();
 
@@ -10,9 +11,10 @@ server.set('views', path.resolve('./http/views'));
 server.set('view engine', 'ejs');
 
 server.use(logger('dev'));
+server.use(express.static(path.resolve('./http/public')));
 
 server.use('/', mainRouter);
-server.use(express.static(path.resolve('./http/public')));
+server.use('/card', cardRouter);
 
 
 server.use((req, res, next) => {
