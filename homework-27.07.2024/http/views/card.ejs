@@ -22,6 +22,14 @@
         <span class="year"><%= item.year %></span>
         <span class="rating">IMDB: <%= item.rating %></span>
     </div>
+    <div class="wrapper-player">
+        <iframe id="pre" src="<%= item.src %>" frameborder="0" allowfullscreen="">
+            <video preload="none" src="<%= item.link %>" controlslist="nodownload"></video>
+        </iframe>
+    </div>
+    <div class="description-wrapper">
+        <p class="description-text"><%= item.description %></p>
+    </div>
 </div>
 </body>
 </html>

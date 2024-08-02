@@ -3,7 +3,7 @@ body {
 }
 
 .main-title {
-    margin-top: 100px;
+    margin-top: 110px;
     text-align: center;
     color: white;
 }
@@ -12,7 +12,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 100px;
+    gap: 0 100px;
     padding: 50px;
 }
 
@@ -74,6 +74,11 @@ body {
     text-align: center;
 }
 
+.description-text {
+    color: #ffffff;
+    font-size: 20px;
+}
+
 .error-wrapper {
     position: absolute;
     text-align: center;
@@ -82,4 +87,23 @@ body {
     transform: translate(-50%, -50%);
     color: white;
     font-size: 30px;
+}
+
+#pre {
+    width: 720px;
+    height: 400px;
+}
+
+@media screen and (max-width: 400px) {
+    .wrapper {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    #pre {
+        width: 360px;
+        height: 200px;
+    }
 }
