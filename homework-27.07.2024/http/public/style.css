@@ -37,6 +37,7 @@ body {
     position: fixed;
     top: 0;
     left: 10px;
+    z-index: 100;
 }
 
 .card_img {
@@ -94,7 +95,7 @@ body {
     height: 400px;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
     .wrapper {
         padding-left: 20px;
         padding-right: 20px;
