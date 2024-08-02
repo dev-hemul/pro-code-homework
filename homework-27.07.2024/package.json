@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "- створити сервер\r - створити запускатор\r - в кінці має бути стартовий шаблон",
   "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./bin/www.js",
