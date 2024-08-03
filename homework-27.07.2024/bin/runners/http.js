@@ -1,5 +1,3 @@
-// Імпорт налаштувань для підняття серверу
-
 import http from 'http';
 import server from "../../http/server.js";
 

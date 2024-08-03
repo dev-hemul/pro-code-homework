@@ -1,7 +1,7 @@
 {
   "name": "homework-23.07.2024",
   "version": "1.0.0",
-  "description": "- роут\r - ejs шаблон\r - статичні файли",
+  "description": "",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
