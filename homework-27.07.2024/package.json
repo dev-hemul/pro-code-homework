@@ -2,7 +2,7 @@
   "name": "homework-27.07.2024",
   "version": "1.0.0",
   "description": "- створити сервер\r - створити запускатор\r - в кінці має бути стартовий шаблон",
-  "main": "index.js",
+  "main": "bin/www.js",
   "engines": {
     "node": "20.x"
   },
