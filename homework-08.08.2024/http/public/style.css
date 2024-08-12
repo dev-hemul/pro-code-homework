@@ -1,0 +1,54 @@
+body {
+    background-color: antiquewhite;
+}
+
+p {
+    width: 200px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.form-wrapper {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+#messages {
+    width: 400px;
+    min-height: 30px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    border: 5px solid #ffffff;
+    border-radius: 10px;
+}
+
+.form {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.form__label {
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.form__area {
+    margin-bottom: 15px;
+    outline: none;
+}
+
+.form__button {
+    padding: 10px 20px;
+}

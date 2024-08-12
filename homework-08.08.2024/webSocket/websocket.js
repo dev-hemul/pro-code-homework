@@ -1,0 +1,34 @@
+import { WebSocketServer } from 'ws';
+
+const run = async () => {
+    const wss = new WebSocketServer({ port: 7000 });
+
+    const clients = new Set();
+
+    wss.on('connection', (ws) => {
+        console.log('Client connected!');
+        clients.add(ws);
+
+        ws.on('message', (data) => {
+            // Преобразуем данные в строку, если это нужно
+            const message = typeof data === 'string' ? data : data.toString();
+            console.log('Received data:', message);
+
+            // Отправляем данные обратно всем подключённым клиентам
+            clients.forEach(client => {
+                if (client.readyState === WebSocket.OPEN) {
+                    client.send(message);
+                }
+            });
+        });
+
+        ws.on('close', () => {
+            console.log('Client disconnected');
+            clients.delete(ws);
+        });
+    });
+
+    console.log('WebSocket server is running on ws://localhost:7000');
+};
+
+export default run;
