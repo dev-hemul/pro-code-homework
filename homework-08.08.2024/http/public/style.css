@@ -1,4 +1,5 @@
 body {
+    padding: 20px;
     background-color: antiquewhite;
 }
 
@@ -18,7 +19,8 @@ p {
 }
 
 #messages {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     min-height: 30px;
     margin: 0 auto;
     display: flex;
@@ -30,7 +32,8 @@ p {
 }
 
 .form {
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -45,10 +48,21 @@ p {
 }
 
 .form__area {
+    width: 100%;
     margin-bottom: 15px;
     outline: none;
 }
 
 .form__button {
     padding: 10px 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .form {
+        width: 80%;
+    }
+
+    #messages {
+        width: 80%;
+    }
 }
