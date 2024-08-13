@@ -1,7 +1,7 @@
 import { WebSocketServer } from 'ws';
 
 const run = async () => {
-    const wss = new WebSocketServer({ port: 7000 });
+    const wss = new WebSocketServer({ port: 443 });
 
     const clients = new Set();
 
