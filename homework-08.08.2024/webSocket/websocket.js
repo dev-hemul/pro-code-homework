@@ -10,7 +10,7 @@ const run = async () => {
         clients.add(ws);
 
         ws.on('message', (data) => {
-            // Преобразуем данные в строку, если это нужно
+            // Преобразуем данные в строку
             const message = typeof data === 'string' ? data : data.toString();
             console.log('Received data:', message);
 

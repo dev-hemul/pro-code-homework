@@ -6,7 +6,7 @@ let sendMessage = () => {
     let formData = new FormData(form);
     let formDataValue = formData.get("text"); // Получаем значение конкретного поля, например "text"
 
-    console.log("Отправляем значение:", formDataValue); // Проверка на отладку
+    console.log("Отправляем значение:", formDataValue);
 
     if (socket.readyState === WebSocket.OPEN) {
         socket.send(formDataValue); // Отправляем только значение поля
@@ -23,7 +23,7 @@ form.addEventListener("submit", (e) => {
 
 formArea.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
-        e.preventDefault(); // Останавливаем стандартное поведение
+        e.preventDefault();
         sendMessage();
     }
 });
