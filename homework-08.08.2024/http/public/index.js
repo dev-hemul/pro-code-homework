@@ -28,8 +28,8 @@ formArea.addEventListener("keydown", (e) => {
     }
 });
 
-const url = 'wss://jellyfish-app-xsopg.ondigitalocean.app';
-const socket = new WebSocket(url);
+const protocol = window.location.protocol.includes('https') ? 'wss': 'ws';
+const socket = new WebSocket(`${protocol}://${location.host}`);
 
 socket.onmessage = (e) => {
     console.log('Received data:', e.data);
@@ -43,4 +43,3 @@ socket.onmessage = (e) => {
 socket.onopen = (e) => {
     console.log("WebSocket connection established");
 }
-
