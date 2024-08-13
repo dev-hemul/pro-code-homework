@@ -1,6 +1,8 @@
 let form = document.querySelector(".form");
 let messagesDiv = document.getElementById("messages");
 let formArea = document.querySelector(".form__area");
+const protocol = window.location.protocol.includes('https') ? 'wss': 'ws'
+const socket = new WebSocket(`${protocol}://${location.host}`);
 
 let sendMessage = () => {
     let formData = new FormData(form);
@@ -27,9 +29,6 @@ formArea.addEventListener("keydown", (e) => {
         sendMessage();
     }
 });
-
-const protocol = window.location.protocol.includes('https') ? 'wss': 'ws'
-const socket = new WebSocket(`${protocol}://${location.host}`);
 
 socket.onmessage = (e) => {
     console.log('Received data:', e.data);
