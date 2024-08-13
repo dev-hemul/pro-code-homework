@@ -28,7 +28,7 @@ formArea.addEventListener("keydown", (e) => {
     }
 });
 
-const url = 'ws://localhost:7000';
+const url = 'wss://jellyfish-app-xsopg.ondigitalocean.app:7000';
 const socket = new WebSocket(url);
 
 socket.onmessage = (e) => {
