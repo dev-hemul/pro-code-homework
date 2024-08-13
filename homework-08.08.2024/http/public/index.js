@@ -44,4 +44,3 @@ socket.onopen = (e) => {
     console.log("WebSocket connection established");
 }
 
-message();
