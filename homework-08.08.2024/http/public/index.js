@@ -4,12 +4,12 @@ let formArea = document.querySelector(".form__area");
 
 let sendMessage = () => {
     let formData = new FormData(form);
-    let formDataValue = formData.get("text"); // Получаем значение конкретного поля, например "text"
+    let formDataValue = formData.get("text");
 
     console.log("Отправляем значение:", formDataValue);
 
     if (socket.readyState === WebSocket.OPEN) {
-        socket.send(formDataValue); // Отправляем только значение поля
+        socket.send(formDataValue);
         formArea.value = "";
     } else {
         console.log("WebSocket not connected");
@@ -28,8 +28,9 @@ formArea.addEventListener("keydown", (e) => {
     }
 });
 
-const url = 'ws://localhost:7000';
-const socket = new WebSocket(url);
+// Автоматически определяем, использовать ли 'ws' или 'wss' в зависимости от протокола страницы
+const protocol = window.location.protocol.includes('https') ? 'wss' : 'ws';
+const socket = new WebSocket(`${protocol}://${location.host}`);
 
 socket.onmessage = (e) => {
     console.log('Received data:', e.data);
@@ -44,3 +45,10 @@ socket.onopen = (e) => {
     console.log("WebSocket connection established");
 }
 
+socket.onclose = (e) => {
+    console.log("WebSocket connection closed");
+}
+
+socket.onerror = (error) => {
+    console.error("WebSocket error observed:", error);
+}
