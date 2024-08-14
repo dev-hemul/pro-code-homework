@@ -5,7 +5,7 @@ import { WebSocketServer } from 'ws';
 export default function startServer() {
   const httpServer = http.createServer(server);
 
-  const wss = new WebSocketServer({ server });
+  const wss = new WebSocketServer({ server: httpServer });
 
   const clients = new Set();
 
