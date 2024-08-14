@@ -2,7 +2,7 @@ import {WebSocketServer} from 'ws';
 
 const run = async () => {
 	const port = 7000;
-	const wss = new WebSocketServer({port});
+	const wss = new WebSocketServer(`${protocol}://${location.host}`);
 
 
 	const clients = new Set();
@@ -11,7 +11,7 @@ const run = async () => {
 		console.log('Client connected!');
 		clients.add(ws);
 
-		ws.on('message', (data) => {
+		wss.on('message', (data) => {
 			// Преобразуем данные в строку
 			const message = typeof data === 'string' ? data : data.toString();
 			console.log('Received data:', message);
@@ -24,7 +24,7 @@ const run = async () => {
 			});
 		});
 
-		ws.on('close', () => {
+		wss.on('close', () => {
 			console.log('Client disconnected');
 			clients.delete(ws);
 		});
