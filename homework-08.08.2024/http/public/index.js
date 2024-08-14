@@ -31,6 +31,7 @@ formArea.addEventListener("keydown", (e) => {
 const protocol = window.location.protocol.includes('https') ? 'wss' : 'ws'
 const socket = new WebSocket(`${protocol}://${location.host}`);
 
+
 /*const url = 'ws://localhost:7000';
 const socket = new WebSocket(url);*/
 
