@@ -4,7 +4,6 @@ const run = async () => {
 	const port = 8080;
 	const wss = new WebSocketServer({port});
 
-
 	const clients = new Set();
 
 	wss.on('connection', (ws) => {
