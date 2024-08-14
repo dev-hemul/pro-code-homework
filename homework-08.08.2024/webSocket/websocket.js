@@ -1,7 +1,7 @@
 import {WebSocketServer} from 'ws';
 
 const run = async () => {
-	const port = process.env.PORT || 7000;
+	const port = 7000;
 	const wss = new WebSocketServer({port});
 
 
