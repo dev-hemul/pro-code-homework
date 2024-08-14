@@ -3,7 +3,6 @@ import server from "../../http/server.js";
 
 export default function startServer() {
   const httpServer = http.createServer(server);
-  const webSocketServer = new WebSocket.Server({ server });
   const PORT = 8080;
 
   httpServer.listen(PORT, () => {
