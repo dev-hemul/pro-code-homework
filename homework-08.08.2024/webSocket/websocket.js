@@ -1,8 +1,8 @@
 import {WebSocketServer} from 'ws';
 
 const run = async () => {
-	const port = 7000;
-	const wss = new WebSocketServer(`${protocol}://${location.host}`);
+	const port = 8080;
+	const wss = new WebSocketServer({port});
 
 
 	const clients = new Set();
@@ -11,7 +11,7 @@ const run = async () => {
 		console.log('Client connected!');
 		clients.add(ws);
 
-		wss.on('message', (data) => {
+		ws.on('message', (data) => {
 			// Преобразуем данные в строку
 			const message = typeof data === 'string' ? data : data.toString();
 			console.log('Received data:', message);
@@ -24,7 +24,7 @@ const run = async () => {
 			});
 		});
 
-		wss.on('close', () => {
+		ws.on('close', () => {
 			console.log('Client disconnected');
 			clients.delete(ws);
 		});
