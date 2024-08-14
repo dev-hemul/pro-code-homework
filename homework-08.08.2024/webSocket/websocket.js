@@ -1,7 +1,7 @@
 import {WebSocketServer} from 'ws';
 
 const run = async () => {
-	const port = 8080;
+	const port = 8000;
 	const wss = new WebSocketServer({port});
 
 	const clients = new Set();
