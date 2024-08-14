@@ -1,8 +1,9 @@
 import { WebSocketServer } from 'ws';
+import server from "../http/server.js";
 
 const run = async () => {
     /*const port = 2000;*/
-    const wss = new WebSocketServer({server: Express });
+    const wss = new WebSocketServer({server});
 
     const clients = new Set();
 
