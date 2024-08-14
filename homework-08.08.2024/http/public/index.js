@@ -28,7 +28,7 @@ formArea.addEventListener("keydown", (e) => {
 	}
 });
 
-const socket = new WebSocket('ws://chat-app-xa4t7.ondigitalocean.app:8080');
+const socket = new WebSocket('wss://chat-app-xa4t7.ondigitalocean.app:8080');
 
 /*const url = 'ws://localhost:7000';
 const socket = new WebSocket(url);*/
