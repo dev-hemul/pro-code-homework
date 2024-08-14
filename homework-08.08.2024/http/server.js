@@ -20,14 +20,14 @@ server.use((req, res, next) => {
 	next(createHttpError(404));
 })
 
-// error hendler - midleware для обробки помилок. Тобто спочатку вище формуємо помилку, а потім всі помилки передаються сюди
+
 server.use((err, req, res, next) => {
-	const {status = 404, message} = err; // Беремо статус помилки
+	const {status = 404, message} = err;
 	console.error(status);
 	console.error(message);
 
-	res.status(status); // Встановлюємо статус відповіді
-	res.render('error', {errorStatus: status, message}); // Передаємо статус і повідомлення в шаблон
+	res.status(status);
+	res.render('error', {errorStatus: status, message});
 });
 
 export default server;
