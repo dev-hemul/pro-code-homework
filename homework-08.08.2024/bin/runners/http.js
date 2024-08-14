@@ -4,8 +4,10 @@ import { WebSocketServer } from 'ws';
 
 export default function startServer() {
   const httpServer = http.createServer(server);
-  const wss = new WebSocket.Server({ server });
-const clients = new Set();
+
+  const wss = new WebSocketServer({ server });
+
+  const clients = new Set();
 
     wss.on('connection', (ws) => {
         console.log('Client connected!');
