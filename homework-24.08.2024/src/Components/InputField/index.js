@@ -11,7 +11,6 @@ function InputField({ onInputChange, inputValue }) {
         placeholder="Добавте інформацію до статті"
         className={style.input}
       />
-      <p>{inputValue}</p>
     </div>
   );
 }
