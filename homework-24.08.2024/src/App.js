@@ -19,8 +19,12 @@ function App() {
   return (
     <div className="App">
       <Button toggleTextVisibility={toggleTextVisibility} />
-      {isTextVisible && <Text_field inputValue={inputValue} />}
-      <InputField inputValue={inputValue} onInputChange={handleInputChange} />
+      {isTextVisible && (
+        <>
+          <Text_field inputValue={inputValue} />
+          <InputField inputValue={inputValue} onInputChange={handleInputChange} />
+        </>
+      )}
     </div>
   );
 }
