@@ -1,4 +1,29 @@
 .field {
-    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
     border: 1px solid black;
+}
+
+.hide {
+    display: none;
+}
+
+h2 {
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    text-decoration: underline;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+blockquote {
+    padding: 10px;
+    border: 1px dashed red;
 }
