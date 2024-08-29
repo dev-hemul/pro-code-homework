@@ -1,9 +1,7 @@
 import React from 'react';
 import style from './style.module.css';
-import Text_field from "../Text_field";
 
-
-function Button() {
+function Button({ toggleTextVisibility }) {
   
   const [button, setButton] = React.useState("Показати статтю");
   
@@ -11,11 +9,12 @@ function Button() {
      setButton((prevText) =>
       prevText === "Показати статтю" ? "Сховати статтю" : "Показати статтю"
     );
+    toggleTextVisibility();
   }
   
   return (
     <div>
-    <button className={style.button} type="button" onClick={showHideButton}>{button}</button>
+      <button className={style.button} type="button" onClick={showHideButton}>{button}</button>
     </div>
   );
 }
