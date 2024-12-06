@@ -8,7 +8,7 @@ import morgan, {token} from 'morgan';
 import createHttpError from 'http-errors';
 // Розфарбовування консолі
 import colors from 'colors';
-// Импорт CORS
+	// Импорт CORS
 import cors from 'cors';
 import UsersRoute from './routes/users.js';
 import * as auth from '../controller/auth.js'
