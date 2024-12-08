@@ -41,7 +41,14 @@ const createAccessT = (payload) => { // payload = { iss: user_id } У нашом
 // Створюємо Refresh Token
 // TODO: Для тесту буду масив, але потрібно буде створити БД і записвати його туди
 const createRefreshT = (jti, param) => { // jti - token id, param - id юзера
-
+	const token = nanoid();
+	reftokens.push({
+		jti,
+		token,
+		param
+	});
+	
+	return token;
 }
 
 
