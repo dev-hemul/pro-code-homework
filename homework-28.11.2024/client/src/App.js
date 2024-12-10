@@ -46,7 +46,6 @@ function App() {
       if (tokens) {
         console.log('Received tokens:', tokens);
         await fetchProtectedPage(tokens.accessT);
-        
         await refreshTokens(tokens.accessT, tokens.refreshT);
       } else {
         console.error('Failed to fetch tokens');

@@ -54,6 +54,7 @@ router.post('/replaceTokens', (req, res) => {
   }
 
   const newTokens = auth.replaceTokens(accessT, refreshT);
+	console.log(newTokens);
   if (!newTokens) {
     return res.status(400).json({ error: 'Failed to refresh tokens' });
   }

@@ -68,7 +68,9 @@ const createTokens = (payload) => {
 // Функція для оновлення токена
 const replaceTokens = (accessT, refreshT) => {
 	const payload = getPayloadAccessT(accessT);
+	console.log(`payload: ${payload}`)
 	const {jti} = payload;
+	console.log(`jti: ${jti}`);
 	
 	const idx = reftokens.findIndex((item) => {
 		return item.jti === jti && item.token === refreshT
