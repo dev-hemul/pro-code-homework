@@ -67,9 +67,12 @@ const createTokens = (payload) => {
 
 // Функція для оновлення токена
 const replaceTokens = (accessT, refreshT) => {
-	const {payload} = jws.decode(accessT);
+	const payload = getPayloadAccessT(accessT);
 	const {jti} = payload;
-	const idx = reftokens.findIndex((item) => (item.jti === jti && item.token === refreshT));
+	
+	const idx = reftokens.findIndex((item) => {
+		return item.jti === jti && item.token === refreshT
+	});
 	if (idx === -1) return false; // refresh token not found
 	
 	delete (reftokens[idx]); // remove used refresh token
@@ -109,36 +112,37 @@ const removeRefreshT = (refreshT) => {
 
 // Декодування Access токена
 
-const decodeAccessT = (accessT) => {
-	return jws.decode(accessT);
+const getPayloadAccessT = (accessT) => {
+	const result = jws.decode(accessT);
+	const payload = JSON.parse(result.payload);
+	return payload;
 }
 
 const verifySign = (accessT) => {
-	return jws.verify(accessT, alg, pub);
+	const result =  jws.verify(accessT, alg, pub);
+	console.log(result)
+	return result;
 }
 
 // Верифікація токена
 const verifyAccessT = (accessT) => {
-	const result = verifySign(accessT);
-	if (!result) {
-		return 'bad_sign';
-	}
-	
-	const {payload} = decodeAccessT(accessT);
-	const {exp} = payload;
-	
-	if (exp > Date.now()) {
-		return 'bax_exp';
-	}
-	
-	return 'ок';
-	
-}
+  const result = verifySign(accessT);
+  if (!result) {
+    return 'bad_sign';
+  }
+
+  const { exp } = getPayloadAccessT(accessT);
+  if (exp < Date.now()) {
+    return 'bax_exp';
+  }
+
+  return 'ок';
+};
 
 export {
 	createTokens,
 	replaceTokens,
-	decodeAccessT,
+	getPayloadAccessT,
 	widthdrawRefrByIss,
 	createTokensForUid,
 	removeRefreshT,

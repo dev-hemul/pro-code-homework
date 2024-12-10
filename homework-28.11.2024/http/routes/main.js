@@ -10,8 +10,9 @@ router.get('/', (req, res) => {
 })
 
 router.post('/profile', onlyAuthMv, (req, res) => {
-	const {uid} = res.locals.uid;
-	res.json({status: 'ok', payload: uid});
+	const {uid} = res.locals;
+	console.log('res.locals.uid:', res.locals.uid);
+	res.json({status: 'ok', payload: {uid}});
 })
 
 export default router;

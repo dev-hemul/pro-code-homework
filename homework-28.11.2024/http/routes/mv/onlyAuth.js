@@ -3,23 +3,22 @@ import createHttpError from 'http-errors';
 
 // Функція перевірки токена
 const mv = (req, res, next) => {
-	if (!req.body.accessT) { // no token
-	next(createHttpError(401, 'Not authorized, not token'));
-	return;
-	}
-	
-	const result = auth.verifyAccessT(req.body.accessT);
-	
-	if (result !== 'ok') {
-	next(createHttpError(403));
-	return;
-	}
-	
-	const {payload } = auth.decodeAccessT(req.body.accessT);
-	
-	res.locals.uid = payload.iss;
-	
-	next();
-}
+  if (!req.body.accessT) {
+    return next(createHttpError(401, 'No access token provided'));
+  }
+
+  const result = auth.verifyAccessT(req.body.accessT);
+  console.log('verifyAccessT result:', result);
+  if (result !== 'ок') {
+    return next(createHttpError(403, 'Invalid or expired token'));
+  }
+
+  const payload = auth.getPayloadAccessT(req.body.accessT);
+  res.locals.uid = payload.iss; // Устанавливаем uid в locals для дальнейшей обработки
+  console.log('Payload:', payload);
+  console.log('UID:', res.locals.uid);
+
+  next();
+};
 
 export default mv;

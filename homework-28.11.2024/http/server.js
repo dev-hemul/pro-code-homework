@@ -3,7 +3,7 @@ import path from 'path';
 // Цей рядок імпортує функцію fileURLToPath із модуля url, вбудованого в Node.js.
 import {fileURLToPath} from 'url';
 // Логи для консолі за запитами
-import morgan, {token} from 'morgan';
+import morgan from 'morgan';
 // Обробка та відображення помилок
 import createHttpError from 'http-errors';
 	// Импорт CORS

@@ -18,7 +18,6 @@ const checkPwd = (login, pwd) => { // for test
 
 // Приходять login + pwd. Створюємо токен
 router.post('/strategy/local/login', (req, res) => {
-	// login + pwd
 	// valid ajv
 	const {login, password} = req.body;
 	
@@ -29,7 +28,6 @@ router.post('/strategy/local/login', (req, res) => {
 		return;
 	}
 	
-
 	const tokens = auth.createTokensForUid(uid);
 	res.json({ status: 'ok', payload: {tokens} });
 })
@@ -44,15 +42,24 @@ router.post('/logout', onlyAuthMv, (req, res) => {
 
 // Заміна токену
 router.post('/replaceTokens', (req, res) => {
-	const { accessT, refreshT} = req.body;
-	// valid
-	
-	const validSign = auth.verifySign(accessT);
-	if (!validSign) {
-		throw new Error('bad_token');
-	}
-	const newTokens = auth.replaceTokens(accessT, refreshT);
-	res.json({ status: 'ok', payload: {tokens: {...newTokens} } });
-})
+  const { accessT, refreshT } = req.body;
+	console.log(`Токен доступу з фронта: ${accessT}`);
+	console.log(`Рефреш токен з фронта: ${refreshT}`);
+  if (!accessT || !refreshT) {
+    return res.status(400).json({ error: 'Необхідний Access Token і Refresh токен' });
+  }
+  const validSign = auth.verifySign(accessT);
+  if (validSign !== true) {
+    return res.status(403).json({ error: 'Invalid access token signature' });
+  }
+
+  const newTokens = auth.replaceTokens(accessT, refreshT);
+  if (!newTokens) {
+    return res.status(400).json({ error: 'Failed to refresh tokens' });
+  }
+	console.log(newTokens)
+  return res.json({ status: 'ok', payload: { Newtokens: newTokens } });
+});
+
 
 export default router;

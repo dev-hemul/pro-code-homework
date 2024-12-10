@@ -1,7 +1,7 @@
 import { generateKeyPairSync } from 'crypto';
 import fs from 'fs';
 
-// Генерация ключей
+// Генерація ключів
 const { publicKey, privateKey } = generateKeyPairSync('rsa', {
   modulusLength: 2048, // Довжина ключа в бітах
   publicKeyEncoding: {
@@ -14,7 +14,6 @@ const { publicKey, privateKey } = generateKeyPairSync('rsa', {
   },
 });
 
-// Сохранение ключей в файлы
 fs.writeFileSync('./keys/publicKey.pem', publicKey);
 fs.writeFileSync('./keys/privateKey.pem', privateKey);
 
