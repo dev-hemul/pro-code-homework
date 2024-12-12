@@ -5,24 +5,9 @@ import axios from 'axios';
 import './App.css';
 
 function App() {
-	const getTokens = async (login, password) => {
-		try {
-			const {data} = await axios.post('http://localhost:4000/auth/strategy/local/login', {
-				login,
-				password
-			});
-			if (data.status !== 'ok') {
-				console.error('Login failed');
-				return null;
-			}
-			return data.payload.tokens;
-		} catch (error) {
-			console.error('Error during token fetch:', error.message);
-			return null;
-		}
-	};
 	
-	const fetchProtectedPage = async (accessT) => {
+	
+	/*const fetchProtectedPage = async (accessT) => {
 		try {
 			const {data} = await axios.post('http://localhost:4000/profile', {accessT});
 			console.log('Protected page data:', data);
@@ -42,21 +27,9 @@ function App() {
 		} catch (error) {
 			console.error('Failed to refresh tokens:', error.message);
 		}
-	};
+	};*/
 	
-	useEffect(() => {
-		const fetchTokensAndProfile = async () => {
-			const tokens = await getTokens('admin', '123');
-			if (tokens) {
-				console.log('Received tokens:', tokens);
-				await fetchProtectedPage(tokens.accessT);
-				await refreshTokens(tokens.accessT, tokens.refreshT);
-			} else {
-				console.error('Failed to fetch tokens');
-			}
-		};
-		fetchTokensAndProfile();
-	}, []);
+	
 	
 	return (
 		<div>

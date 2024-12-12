@@ -1,8 +1,12 @@
 import {Router} from 'express';
 import * as auth from './../../controller/auth.js';
 import onlyAuthMv from './mv/onlyAuth.js';
+import Ajv from 'ajv';
+import { userSchema } from '../helpers/userSchemaValidation.js';
 
 const router = Router();
+const ajv = new Ajv();
+const validate = ajv.compile(userSchema);
 
 const checkPwd = (login, pwd) => { // for test
 	if(login === 'admin' && pwd === '123') {
@@ -19,6 +23,11 @@ const checkPwd = (login, pwd) => { // for test
 // Приходять login + pwd. Створюємо токен
 router.post('/strategy/local/login', (req, res) => {
 	// valid ajv
+	const valid = validate(req.body);
+	if (!valid) {
+	  console.log(validate.errors);
+    return res.status(400).json({ errors: validate.errors }); // Повертаємо помилки валідації
+  }
 	const {login, password} = req.body;
 	
 	// check login+pwd to bd
