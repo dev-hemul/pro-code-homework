@@ -14,7 +14,7 @@ const mv = (req, res, next) => {
   }
 
   const payload = auth.getPayloadAccessT(req.body.accessT);
-  res.locals.uid = payload.iss; // Устанавливаем uid в locals для дальнейшей обработки
+  res.locals.uid = payload.iss;
   console.log('Payload:', payload);
   console.log('UID:', res.locals.uid);
 

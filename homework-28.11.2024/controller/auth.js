@@ -1,10 +1,9 @@
 import fs from 'fs/promises';
+import userModel from '../model/user.js';
 import path from 'path';
 // Бібліотека для роботи з JWT (JSON Web Signature). Вона дозволяє підписувати або перевіряти токени.
 import jws from 'jws';
 import {nanoid} from 'nanoid';
-
-const reftokens = [];
 
 const alg = 'RS512';
 const lifedur = 5 * 60 * 1000;
@@ -39,13 +38,14 @@ const createAccessT = (payload) => { // payload = { iss: user_id } У нашом
 
 // Створюємо Refresh Token
 // TODO: Для тесту буде масив, але потрібно буде створити БД і записувати його туди
-const createRefrT = (jti, param) => { // jti - token id, param - id юзера
+const createRefrT = async (jti, param) => { // jti - token id, param - id юзера
 	const token = nanoid();
-	reftokens.push({
-		jti,
+	
+	const result = await userModel.create({
+    jti,
 		token,
 		param
-	});
+  });
 	
 	return token;
 }
@@ -66,18 +66,18 @@ const createTokens = (payload) => {
 }
 
 // Функція для оновлення токена
-const replaceTokens = (accessT, refreshT) => {
+const replaceTokens = async (accessT, refreshT) => {
 	const payload = getPayloadAccessT(accessT);
 	console.log(`payload: ${payload}`)
 	const {jti} = payload;
 	console.log(`jti: ${jti}`);
 	
-	const idx = reftokens.findIndex((item) => {
+	const idx = await userModel.findIndex((item) => {
 		return item.jti === jti && item.token === refreshT
 	});
 	if (idx === -1) return false; // refresh token not found
 	
-	delete (reftokens[idx]); // remove used refresh token
+	delete (userModel[idx]); // remove used refresh token
 	
 	delete (payload.exp); // remove old exp date
 	
@@ -85,13 +85,13 @@ const replaceTokens = (accessT, refreshT) => {
 }
 
 // Видалити всі токени певного юзера
-const widthdrawRefrByIss = (iss) => { // В нашому контексті це user_id
-	reftokens.forEach((item, idx) => {
+const widthdrawRefrByIss = async (iss) => { // В нашому контексті це user_id
+	userModel.forEach((item, idx) => {
 		if (item.params.iss !== iss) {
 			return;
 		}
 		
-		delete reftokens[idx];
+		delete userModel[idx];
 	})
 }
 
@@ -103,12 +103,12 @@ const createTokensForUid = (uid) => {
 // Функція для логауту
 // TODO: Має бути запит в БД
 const removeRefreshT = (refreshT) => {
-	reftokens.forEach((item, idx) => {
+	userModel.forEach((item, idx) => {
 		if (item.params.token !== refreshT) {
 			return;
 		}
 		
-		delete reftokens[idx];
+		delete userModel[idx];
 	})
 }
 
@@ -116,8 +116,7 @@ const removeRefreshT = (refreshT) => {
 
 const getPayloadAccessT = (accessT) => {
 	const result = jws.decode(accessT);
-	const payload = JSON.parse(result.payload);
-	return payload;
+	return JSON.parse(result.payload);
 }
 
 const verifySign = (accessT) => {
