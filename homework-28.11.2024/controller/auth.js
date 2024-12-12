@@ -1,152 +1,132 @@
 import fs from 'fs/promises';
-import userModel from '../model/user.js';
 import path from 'path';
-// Бібліотека для роботи з JWT (JSON Web Signature). Вона дозволяє підписувати або перевіряти токени.
 import jws from 'jws';
-import {nanoid} from 'nanoid';
+import Token from './../model/auth.js';
+import { nanoid } from 'nanoid';
 
 const alg = 'RS512';
-const lifedur = 5 * 60 * 1000;
+const lifedur = 5 * 60 * 1000;  // 5 минут
 
-// process.cwd() повертає поточну робочу директорію, звідки був запущений скрипт.
-// Кореневий каталог використовується для вказівки базової директорії, щодо якої будуються шляхи до файлів.
 const rootdir = process.cwd();
 
-// Приватний і публічний ключ мають генеруватись десь на сервері локально, для теста використав онлайн генератор
 const priv = await fs.readFile(path.join(rootdir, 'keys/privateKey.pem'), 'utf8');
 const pub = await fs.readFile(path.join(rootdir, 'keys/publicKey.pem'), 'utf8');
 
+// Функция для создания access token
+const createAccessToken = (payload) => {
+    payload.exp = payload.exp || Date.now() + lifedur;
+    const jti = nanoid();
+    payload.jti = jti;
 
-// Створюємо Access токен + час його життя (5 хвилин)
-const createAccessT = (payload) => { // payload = { iss: user_id } У нашому випадку буде приходити ID юзера
-	if (!payload.exp) {
-		payload.exp = Date.now() + lifedur;
-	}
-	
-	// Дописуємо JSON - token id
-	const jti = nanoid();
-	payload.jti = jti;
-	
-	const token = jws.sign({
-		header: {alg: alg},
-		payload,
-		secret: priv
-	});
-	
-	return {token, jti};
-}
+    const token = jws.sign({
+        header: { alg: alg },
+        payload,
+        secret: priv,
+    });
 
-// Створюємо Refresh Token
-// TODO: Для тесту буде масив, але потрібно буде створити БД і записувати його туди
-const createRefrT = async (jti, param) => { // jti - token id, param - id юзера
-	const token = nanoid();
-	
-	const result = await userModel.create({
-    jti,
-		token,
-		param
-  });
-	
-	return token;
-}
+    return { token, jti };
+};
 
-// Об'єднуємо функції створення access і refresh токенів через те що, будуть викликатись разом
-const createTokens = (payload) => {
-	// access token
-	const {token: accessT, jti} = createAccessT(payload);
-	// refresh token
-	const params = {};
-	if (payload.iss) {
-		params.iss = payload.iss;
-	}
-	
-	const refreshT = createRefrT(jti, params);
-	
-	return {accessT, refreshT};
-}
+// Функция для создания refresh token
+const createRefreshToken = async (jti, userId, accessT) => {
+    const token = nanoid();
+    await Token.create({
+        userId: userId,
+        accessToken: accessT,  // передаем созданный accessToken
+        refreshToken: token,
+        jti: jti,
+    });
+    return token;
+};
 
-// Функція для оновлення токена
+// Функция для создания обоих токенов
+const createTokens = async (payload) => {
+    try {
+        const { token: accessT, jti } = createAccessToken(payload);
+        const refreshT = await createRefreshToken(jti, payload.iss, accessT);  // передаем payload.iss как userId
+
+        console.log('Access Token:', accessT);
+        console.log('Refresh Token:', refreshT);
+
+        if (!accessT || !refreshT) {
+             console.error("Access Token or Refresh Token is missing");
+              throw new Error('Access or refresh token is missing');
+        }
+
+        await Token.updateOne({ jti }, { $set: { accessToken: accessT, refreshToken: refreshT } });
+
+        return { accessT, refreshT };
+    } catch (error) {
+        console.error('Error while creating tokens:', error);
+        throw new Error('Failed to create tokens');
+    }
+};
+
+
+
+// Функция для замены токенов
 const replaceTokens = async (accessT, refreshT) => {
-	const payload = getPayloadAccessT(accessT);
-	console.log(`payload: ${payload}`)
-	const {jti} = payload;
-	console.log(`jti: ${jti}`);
-	
-	const idx = await userModel.findIndex((item) => {
-		return item.jti === jti && item.token === refreshT
-	});
-	if (idx === -1) return false; // refresh token not found
-	
-	delete (userModel[idx]); // remove used refresh token
-	
-	delete (payload.exp); // remove old exp date
-	
-	return createTokens(payload);
-}
+    const payload = getPayloadAccessT(accessT);
+    const { jti } = payload;
 
-// Видалити всі токени певного юзера
-const widthdrawRefrByIss = async (iss) => { // В нашому контексті це user_id
-	userModel.forEach((item, idx) => {
-		if (item.params.iss !== iss) {
-			return;
-		}
-		
-		delete userModel[idx];
-	})
-}
+    const token = await Token.findOne({ jti, refreshToken: refreshT });
+    if (!token) return false;
 
+    await Token.deleteOne({ jti, refreshToken: refreshT });
 
-const createTokensForUid = (uid) => {
-	return createTokens({iss: uid});
-}
+    // Удаление старой даты истечения срока действия
+    delete payload.exp;
 
-// Функція для логауту
-// TODO: Має бути запит в БД
-const removeRefreshT = (refreshT) => {
-	userModel.forEach((item, idx) => {
-		if (item.params.token !== refreshT) {
-			return;
-		}
-		
-		delete userModel[idx];
-	})
-}
+    return createTokens(payload);
+};
 
-// Декодування Access токена
+// Функция для отзыва refresh токенов по issuer
+const withdrawRefreshTokensByIssuer = async (iss) => {
+    await Token.deleteMany({ userId: iss });
+};
 
+// Функция для удаления refresh токена
+const removeRefreshT = async (refreshT) => {
+    const token = await Token.findOneAndDelete({ refreshToken: refreshT });
+    return token ? true : false;
+};
+
+// Функция для извлечения payload из access token
 const getPayloadAccessT = (accessT) => {
-	const result = jws.decode(accessT);
-	return JSON.parse(result.payload);
-}
+    const result = jws.decode(accessT);
+    if (!result) {
+        throw new Error('Invalid access token');
+    }
+    return JSON.parse(result.payload);
+};
 
+// Функция для проверки подписи access token
 const verifySign = (accessT) => {
-	const result =  jws.verify(accessT, alg, pub);
-	console.log(result)
-	return result;
-}
+    const result = jws.verify(accessT, alg, pub);
+    return result;
+};
 
-// Верифікація токена
+// Функция для проверки состояния access token
 const verifyAccessT = (accessT) => {
-  const result = verifySign(accessT);
-  if (!result) {
-    return 'bad_sign';
-  }
+    const result = verifySign(accessT);
+    if (!result) {
+        return 'bad_sign';
+    }
 
-  const { exp } = getPayloadAccessT(accessT);
-  if (exp < Date.now()) {
-    return 'bax_exp';
-  }
+    const { exp } = getPayloadAccessT(accessT);
+    if (exp < Date.now()) {
+        return 'expired';
+    }
 
-  return 'ок';
+    return 'ok';
 };
 
 export {
-	createTokens,
-	replaceTokens,
-	getPayloadAccessT,
-	widthdrawRefrByIss,
-	createTokensForUid,
-	removeRefreshT,
-	verifyAccessT,
-	verifySign
+    createTokens,
+    replaceTokens,
+    getPayloadAccessT,
+    withdrawRefreshTokensByIssuer,
+    removeRefreshT,
+    verifyAccessT,
+    verifySign,
 };

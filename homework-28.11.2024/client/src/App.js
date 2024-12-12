@@ -1,7 +1,5 @@
-import {useEffect} from 'react';
 import Layout from './components/layout/layout';
 import Login from './components/auth/login/index';
-import axios from 'axios';
 import './App.css';
 
 function App() {

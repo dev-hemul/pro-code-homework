@@ -19,7 +19,6 @@ const LoginPage = () => {
       if (data.status === 'ok') {
         toast.success('Ви успішно залогінились і отримали токен!');
       }
-      return data.payload.tokens;
     } catch (error) {
       console.error('Error during token fetch:', error.message);
       return null;
@@ -33,8 +32,6 @@ const LoginPage = () => {
         const tokens = await getTokens(login, password);
         if (tokens) {
           console.log('Received tokens:', tokens);
-        } else {
-          toast.error('Не правильний логін або пароль!');
         }
       } catch (error) {
         console.error('Error during login:', error);
@@ -49,13 +46,13 @@ const LoginPage = () => {
         });
         if (data.status === 'ok') {
           toast.success('Реєстрація успішна! Тепер увійдіть.');
+          console.log(`Ваш access Token ${data.message.accessT}`);
+          console.log(`Ваш refresh Token ${data.message.refreshT}`);
           setIsLoginMode(true);
-        } else {
-          toast.error('Не вдалося зареєструватися.');
         }
       } catch (error) {
         console.error('Error during registration:', error.message);
-        toast.error('Сталася помилка під час реєстрації.');
+        toast.error('Такий логін або e-mail вже існує!');
       }
     }
   };

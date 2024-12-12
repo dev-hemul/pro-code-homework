@@ -1,7 +1,7 @@
 import {Router} from 'express';
 import * as auth from './../../controller/auth.js';
 import createUser from './../../controller/usersController.js';
-import userModel from '../../model/user.js';
+import userModel from '../../model/user-info.js';
 import onlyAuthMv from './mv/onlyAuth.js';
 import Ajv from 'ajv';
 import { userSchema } from '../helpers/userSchemaValidation.js';
@@ -30,9 +30,8 @@ router.post('/strategy/local/login', async (req, res) => {
   if (!isPasswordValid) {
     return res.status(400).json({ error: 'Invalid login or password' });
   }
-
-  const tokens = auth.createTokensForUid(user._id); // Создание токенов для пользователя
-  res.json({ status: 'ok', payload: { tokens } });
+	
+	return res.status(200).json({status: 'ok'});
 })
 
 // Реєстрація
@@ -46,16 +45,24 @@ router.post('/strategy/local/registration', async (req, res) => {
     return res.status(400).json({ errors: validate.errors }); // Повертаємо помилки валідації
   }
 	
-	// Проверяем уникальность логина или email
+	// Перевіряємо унікальність логіна й email
   const existingUser = await userModel.findOne({ $or: [{ login }, { email }] });
   if (existingUser) {
     return res.status(400).json({ error: 'User with this login or email already exists' });
   }
 	
+	// Записуємо дані юзера в бд
+	const newUser = await createUser(login, password, email);  // Сохраняем нового пользователя
 	
-	// Создаем пользователя
-  await createUser(login, password, email);
-  res.json({ status: 'ok' });
+	// Получение ID нового пользователя
+        const userId = newUser._id.toString();
+
+        // Создание токенов
+        const payload = { iss: userId }; // передаём userId как `iss`
+        const { accessT, refreshT } = await auth.createTokens(payload);
+	console.log(accessT, refreshT)
+	
+   res.json({ status: 'ok', message: {accessT, refreshT} });
 	
 })
 

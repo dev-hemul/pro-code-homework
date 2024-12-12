@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import colors from 'colors';
 
 const connectDB = async () => {
-	const dbName = 'mongodb+srv://devhemulll:88888888@cluster0.ah4xy.mongodb.net/tokens?retryWrites=true&w=majority&appName=Cluster0';
+	const dbName = 'mongodb+srv://devhemulll:88888888@cluster0.ah4xy.mongodb.net/User?retryWrites=true&w=majority&appName=Cluster0';
 	try {
 		await mongoose.connect(dbName);
 		console.log(`Connected to DB user: ${dbName}`.bgGreen.black);
