@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import {ToastContainer, toast} from 'react-toastify';
-import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate } from 'react-router-dom'; // Подключаем useNavigate
-import Profile from './../../profile/index';
+import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 
 const LoginPage = () => {
@@ -11,6 +10,7 @@ const LoginPage = () => {
 	const [login, setLogin] = useState('');
 	const [password, setPassword] = useState('');
 	const [email, setEmail] = useState('');
+	
 	const navigate = useNavigate();
 	
 
@@ -20,10 +20,8 @@ const LoginPage = () => {
     const refreshToken = localStorage.getItem('refreshToken');
 		
 		 if (accessToken && refreshToken) {
-      // Если токены есть, можно перенаправить на другую страницу
-      toast.info('Ви вже авторизовані.');
-      // navigate('/dashboard'); или любая другая страница
-			 navigate('/profile'); // Редиректим на профиль
+      toast.info('Ви вже авторизовані');
+			 navigate('/profile'); // Редирект на профіль
     }
 		 
 		try {
@@ -37,15 +35,15 @@ const LoginPage = () => {
 				localStorage.setItem('accessToken', data.message.accessT);
         localStorage.setItem('refreshToken', data.message.refreshT);
 				toast.success('Ви успішно залогінились і отримали токен!');
-				 navigate('/profile'); // Редиректим на профиль после успешного входа
+				 navigate('/profile'); // Редирект на профіль після успішного входу
 			}
 		} catch (error) {
 			console.error('Error during login:', error.message);
 			if (error.response) {
-        // Извлекаем сообщение об ошибке
+        // Виймаємо повідомлення про помилку
         const errorMessage = error.response.data.error;
 
-        // Проверяем сообщение и выводим соответствующие уведомления
+        // Перевіряємо повідомлення та виводимо відповідні повідомлення
         if (errorMessage === 'Invalid login') {
             toast.error('Невірний логін!');
         } else if (errorMessage === 'Invalid password') {

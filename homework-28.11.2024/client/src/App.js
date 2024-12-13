@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react';
 import Layout from './components/layout/layout';
 import Login from './components/auth/login/index';
 import Profile from './components/profile/index';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';  // Используем новый API из react-router-dom
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';  // Используем новый API из react-router-dom
 import './App.css';
 
 function App() {
@@ -35,10 +34,10 @@ function App() {
       <div>
         <Layout>
            <Routes>
-            {/* Роут для логина */}
+            {/* Роут для логіна */}
             <Route path="/" element={<Login />} />
 
-            {/* Защищенный роут для профиля */}
+            {/* Захищений роут для профілю */}
             <Route path="/profile" element={<Profile />} />
 	            </Routes>
         </Layout>

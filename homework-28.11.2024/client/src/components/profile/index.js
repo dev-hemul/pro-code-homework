@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const Profile = () => {
   const [profileData, setProfileData] = useState(null);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Получаем токен из localStorage
+    // Отримуємо токен із localStorage
     const accessToken = localStorage.getItem('accessToken');
 
     if (!accessToken) {
@@ -16,7 +20,7 @@ const Profile = () => {
 
     const fetchProfileData = async () => {
       try {
-        // Запрос на защищенный роут
+        // Запит на захищений роут
         const { data } = await axios.post(
           'http://localhost:4000/profile',
           {},
@@ -28,7 +32,7 @@ const Profile = () => {
         );
         setProfileData(data.payload);
       } catch (error) {
-        setError('Failed to fetch profile');
+        setError('Ваш токен більше не дійсний, залогіньтесь будь-ласка знову');
       }
     };
 
@@ -36,20 +40,51 @@ const Profile = () => {
   }, []);
 
   if (error) {
-    return <div>
-      {error}
-      <br/>
-      <a href="/">Повернутись на сторінку логіна</a></div>;
+    return (
+      <div className="flex h-screen items-center justify-center bg-gray-100">
+        <div className="bg-white shadow-lg rounded-lg p-6 max-w-md text-center">
+          <p className="text-red-500 font-medium mb-4">{error}</p>
+          <a
+            href="/"
+            className="inline-block mt-4 text-blue-600 hover:text-blue-800 underline"
+          >
+            Повернутись на сторінку логіна
+          </a>
+        </div>
+      </div>
+    );
   }
 
   if (!profileData) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex h-screen items-center justify-center bg-gray-100">
+        <div className="text-lg font-medium text-gray-600">Loading...</div>
+      </div>
+    );
+  }
+  
+  const logout = () => {
+    localStorage.removeItem('accessToken');
+    navigate('/');
   }
 
   return (
-    <div>
-      <h2>Profile Page</h2>
-      <p>User ID: {profileData.uid}</p>
+    <div className="min-h-screen flex flex-col items-center bg-gray-50 text-gray-800 p-6">
+      <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-lg mt-20">
+        <h2 className="text-2xl font-bold mb-6 text-center text-gray-700">
+          Профіль користувача
+        </h2>
+        <p className="text-lg mb-4">
+          <span className="font-medium text-gray-600">User ID:</span> {profileData.uid}
+        </p>
+        <button
+          type="button"
+          onClick={logout}
+          className="w-full px-4 py-2 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 transition"
+        >
+          Вихід
+        </button>
+      </div>
     </div>
   );
 };

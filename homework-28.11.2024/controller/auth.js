@@ -5,14 +5,14 @@ import Token from './../model/auth.js';
 import { nanoid } from 'nanoid';
 
 const alg = 'RS512';
-const lifedur = 5 * 60 * 1000;  // 5 минут
+const lifedur = 1 * 60 * 1000;  // 5 минут
 
 const rootdir = process.cwd();
 
 const priv = await fs.readFile(path.join(rootdir, 'keys/privateKey.pem'), 'utf8');
 const pub = await fs.readFile(path.join(rootdir, 'keys/publicKey.pem'), 'utf8');
 
-// Функция для создания access token
+// Функція для створення access token
 const createAccessToken = (payload) => {
     payload.exp = payload.exp || Date.now() + lifedur;
     const jti = nanoid();
@@ -27,23 +27,23 @@ const createAccessToken = (payload) => {
     return { token, jti };
 };
 
-// Функция для создания refresh token
+// Функція для створення refresh token
 const createRefreshToken = async (jti, userId, accessT) => {
     const token = nanoid();
     await Token.create({
         userId: userId,
-        accessToken: accessT,  // передаем созданный accessToken
+        accessToken: accessT,  // передаємо створений accessToken
         refreshToken: token,
         jti: jti,
     });
     return token;
 };
 
-// Функция для создания обоих токенов
+// Функція для створення обох токенів
 const createTokens = async (payload) => {
     try {
         const { token: accessT, jti } = createAccessToken(payload);
-        const refreshT = await createRefreshToken(jti, payload.iss, accessT);  // передаем payload.iss как userId
+        const refreshT = await createRefreshToken(jti, payload.iss, accessT);  // передаємо payload.iss як userId
 
         console.log('Access Token:', accessT);
         console.log('Refresh Token:', refreshT);
@@ -62,7 +62,7 @@ const createTokens = async (payload) => {
     }
 };
 
-// Функция для замены токенов
+// Функція для заміни токенів
 const replaceTokens = async (accessT, refreshT) => {
     const payload = getPayloadAccessT(accessT);
     const { jti } = payload;
@@ -72,24 +72,24 @@ const replaceTokens = async (accessT, refreshT) => {
 
     await Token.deleteOne({ jti, refreshToken: refreshT });
 
-    // Удаление старой даты истечения срока действия
+    // Видалення старої дати закінчення терміну дії
     delete payload.exp;
 
     return createTokens(payload);
 };
 
-// Функция для отзыва refresh токенов по issuer
+// Функція для відкликання refresh токенів по issuer
 const withdrawRefreshTokensByIssuer = async (iss) => {
     await Token.deleteMany({ userId: iss });
 };
 
-// Функция для удаления refresh токена
+// Функція для видалення refresh токена
 const removeRefreshT = async (refreshT) => {
     const token = await Token.findOneAndDelete({ refreshToken: refreshT });
     return token ? true : false;
 };
 
-// Функция для извлечения payload из access token
+// Функція для вилучення payload з access token
 const getPayloadAccessT = (accessT) => {
     const result = jws.decode(accessT);
     if (!result) {
@@ -98,13 +98,13 @@ const getPayloadAccessT = (accessT) => {
     return JSON.parse(result.payload);
 };
 
-// Функция для проверки подписи access token
+// Функція перевірки підпису access token
 const verifySign = (accessT) => {
     const result = jws.verify(accessT, alg, pub);
     return result;
 };
 
-// Функция для проверки состояния access token
+// Функція перевірки стану access token
 const verifyAccessT = (accessT) => {
     const result = verifySign(accessT);
     if (!result) {

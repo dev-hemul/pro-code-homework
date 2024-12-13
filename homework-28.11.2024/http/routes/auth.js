@@ -32,12 +32,12 @@ router.post('/strategy/local/login', async (req, res) => {
 		return res.status(400).json({error: 'Invalid password'});
 	}
 	
-	 // Проверяем, есть ли уже сохраненный refreshToken
+	 // Перевіряємо, чи є вже збережений refreshToken
     const tokenRecord = await Token.findOne({ userId: user._id });
     let accessT, refreshT;
 
     if (tokenRecord) {
-        // Если refresh token существует, генерируем новый access token
+        // Якщо refresh token існує, генеруємо новий access token
         const payload = { iss: user._id.toString() };
         const { token: newAccessT } = await auth.createAccessToken(payload);
         accessT = newAccessT;
@@ -70,11 +70,11 @@ router.post('/strategy/local/registration', async (req, res) => {
 	// Записуємо дані юзера в бд
 	const newUser = await createUser(login, password, email);  // Сохраняем нового пользователя
 	
-	// Получение ID нового пользователя
+	// Отримуємо ID нового користувача
 	const userId = newUser._id.toString();
 	
-	// Создание токенов
-	const payload = {iss: userId}; // передаём userId как `iss`
+	// Створення токенів
+	const payload = {iss: userId}; // передаємо userId як `iss`
 	const {accessT, refreshT} = await auth.createTokens(payload);
 	console.log(accessT, refreshT)
 	
