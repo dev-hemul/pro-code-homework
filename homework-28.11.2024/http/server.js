@@ -10,6 +10,7 @@ import createHttpError from 'http-errors';
 import cors from 'cors';
 import mainRouter from './routes/main.js'
 import authRouter from './routes/auth.js';
+import resetPasword from './routes/restore.js';
 
 const app = express();
 app.use(morgan('combined'));
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 app.use('/', mainRouter);
 app.use('/auth', authRouter);
+app.use('/restore', resetPasword);
 
 app.use((req, res, next) => {
 	next(createHttpError(404));

@@ -95,21 +95,22 @@ const LoginPage = () => {
 	};
 	
 	const handlePasswordReset = async (e) => {
-		e.preventDefault();
-		try {
-			const {data} = await axios.post('http://localhost:4000/auth/forgot-password', {email});
-			if (data.status === 'ok') {
-				toast.success('Інструкція з відновлення паролю відправлена на вашу пошту.');
-				setIsResetMode(false);
-				setIsLoginMode(true);
-			} else {
-				toast.error('Не вдалося відправити інструкцію.');
-			}
-		} catch (error) {
-			console.error('Error during password reset:', error.message);
-			toast.error('Сталася помилка під час запиту.');
-		}
-	};
+  e.preventDefault();
+  try {
+    const { data } = await axios.post('http://localhost:4000/restore/forgot-password', { email });
+	  console.log(data)
+    if (data.status === 'ok') {
+      toast.success('Інструкція з відновлення паролю відправлена на вашу пошту.');
+      setIsResetMode(false);
+      setIsLoginMode(true);
+    } else {
+      toast.error('Не вдалося відправити інструкцію.');
+    }
+  } catch (error) {
+    console.error('Error during password reset:', error.message);
+    toast.error('Сталася помилка під час запиту.');
+  }
+};
 	
 	return (
 		<div className="min-h-screen flex items-center justify-center bg-gray-100">

@@ -12,7 +12,15 @@ const schema = new Schema({
 	email: {
 		type: SchemaTypes.String,
 		default: '',
-	}
+	},
+  resetToken: {
+    type: String,
+    default: null
+  },
+  resetTokenExpiration: {
+    type: Date,
+    default: null
+  },
 	
 }, {timestamps: true}); // Автоматом додасть поля createdAt, updatedAt (час створення і час оновлення запису)
 
