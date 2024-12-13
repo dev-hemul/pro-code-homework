@@ -1,5 +1,8 @@
+import { useState, useEffect } from 'react';
 import Layout from './components/layout/layout';
 import Login from './components/auth/login/index';
+import Profile from './components/profile/index';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';  // Используем новый API из react-router-dom
 import './App.css';
 
 function App() {
@@ -27,15 +30,21 @@ function App() {
 		}
 	};*/
 	
-	
-	
 	return (
-		<div>
-			<Layout>
-        <Login />
-			</Layout>
-		</div>
-	);
+    <Router>
+      <div>
+        <Layout>
+           <Routes>
+            {/* Роут для логина */}
+            <Route path="/" element={<Login />} />
+
+            {/* Защищенный роут для профиля */}
+            <Route path="/profile" element={<Profile />} />
+	            </Routes>
+        </Layout>
+      </div>
+    </Router>
+  );
 }
 
 export default App;

@@ -1,20 +1,26 @@
 import * as auth from './../../../controller/auth.js';
 import createHttpError from 'http-errors';
 
-// Функція перевірки токена
+// Функция проверки токена
 const mv = (req, res, next) => {
-  if (!req.body.accessT) {
+  // Извлекаем токен из заголовка Authorization
+  const accessT = req.headers['authorization']?.split(' ')[1];  // Ожидаем формат "Bearer <token>"
+
+  if (!accessT) {
     return next(createHttpError(401, 'No access token provided'));
   }
 
-  const result = auth.verifyAccessT(req.body.accessT);
+  // Проверяем токен
+  const result = auth.verifyAccessT(accessT);
   console.log('verifyAccessT result:', result);
-  if (result !== 'ок') {
+
+  if (result !== true) {
     return next(createHttpError(403, 'Invalid or expired token'));
   }
 
-  const payload = auth.getPayloadAccessT(req.body.accessT);
-  res.locals.uid = payload.iss;
+  // Извлекаем payload из токена и сохраняем user ID в res.locals
+  const payload = auth.getPayloadAccessT(accessT);
+  res.locals.uid = payload.iss;  // Сохраняем user ID как uid
   console.log('Payload:', payload);
   console.log('UID:', res.locals.uid);
 

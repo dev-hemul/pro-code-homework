@@ -116,7 +116,7 @@ const verifyAccessT = (accessT) => {
         return 'expired';
     }
 
-    return 'ok';
+    return true;
 };
 
 export {

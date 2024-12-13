@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import {ToastContainer, toast} from 'react-toastify';
+import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate } from 'react-router-dom'; // Подключаем useNavigate
+import Profile from './../../profile/index';
 import 'react-toastify/dist/ReactToastify.css';
 
 const LoginPage = () => {
@@ -9,6 +11,7 @@ const LoginPage = () => {
 	const [login, setLogin] = useState('');
 	const [password, setPassword] = useState('');
 	const [email, setEmail] = useState('');
+	const navigate = useNavigate();
 	
 
 	const getTokens = async (login, password) => {
@@ -20,6 +23,7 @@ const LoginPage = () => {
       // Если токены есть, можно перенаправить на другую страницу
       toast.info('Ви вже авторизовані.');
       // navigate('/dashboard'); или любая другая страница
+			 navigate('/profile'); // Редиректим на профиль
     }
 		 
 		try {
@@ -33,6 +37,7 @@ const LoginPage = () => {
 				localStorage.setItem('accessToken', data.message.accessT);
         localStorage.setItem('refreshToken', data.message.refreshT);
 				toast.success('Ви успішно залогінились і отримали токен!');
+				 navigate('/profile'); // Редиректим на профиль после успешного входа
 			}
 		} catch (error) {
 			console.error('Error during login:', error.message);
