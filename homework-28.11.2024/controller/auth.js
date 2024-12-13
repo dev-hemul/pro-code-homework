@@ -62,8 +62,6 @@ const createTokens = async (payload) => {
     }
 };
 
-
-
 // Функция для замены токенов
 const replaceTokens = async (accessT, refreshT) => {
     const payload = getPayloadAccessT(accessT);
