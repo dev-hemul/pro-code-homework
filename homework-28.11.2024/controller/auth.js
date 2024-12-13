@@ -120,6 +120,7 @@ const verifyAccessT = (accessT) => {
 };
 
 export {
+    createAccessToken,
     createTokens,
     replaceTokens,
     getPayloadAccessT,

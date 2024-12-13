@@ -10,19 +10,18 @@ const LoginPage = () => {
 	const [password, setPassword] = useState('');
 	const [email, setEmail] = useState('');
 	
+
 	const getTokens = async (login, password) => {
-		// Проверяем, есть ли уже токены в localStorage
+		// Перевіряємо чи є токени в localStorage
     const accessToken = localStorage.getItem('accessToken');
     const refreshToken = localStorage.getItem('refreshToken');
-
-    if (accessToken && refreshToken) {
-        // Если токены есть, значит пользователь уже авторизован
-        toast.info('Ви вже авторизовані.');
-        // Можно здесь перенаправить пользователя на другую страницу
-        // navigate('/dashboard'); // или любая другая страница
-        return;
-    }
 		
+		 if (accessToken && refreshToken) {
+      // Если токены есть, можно перенаправить на другую страницу
+      toast.info('Ви вже авторизовані.');
+      // navigate('/dashboard'); или любая другая страница
+    }
+		 
 		try {
 			const {data} = await axios.post('http://localhost:4000/auth/strategy/local/login', {
 				login,
@@ -31,11 +30,27 @@ const LoginPage = () => {
 			console.log(data);
 			console.log(data.status);
 			if (data.status === 'ok') {
+				localStorage.setItem('accessToken', data.message.accessT);
+        localStorage.setItem('refreshToken', data.message.refreshT);
 				toast.success('Ви успішно залогінились і отримали токен!');
 			}
 		} catch (error) {
 			console.error('Error during login:', error.message);
-			toast.error('Сталася щось дивне');
+			if (error.response) {
+        // Извлекаем сообщение об ошибке
+        const errorMessage = error.response.data.error;
+
+        // Проверяем сообщение и выводим соответствующие уведомления
+        if (errorMessage === 'Invalid login') {
+            toast.error('Невірний логін!');
+        } else if (errorMessage === 'Invalid password') {
+            toast.error('Невірний пароль!');
+        } else if (errorMessage === 'Invalid email') {
+					toast.info('Логін і пароль мають бути від 3 символів!');
+        }else {
+            toast.error(`Помилка: ${errorMessage || 'Сталося щось дивне...'}`);
+        }
+    }
 			return null;
 		}
 	};
@@ -115,6 +130,7 @@ const LoginPage = () => {
 									onChange={(e) => setLogin(e.target.value)}
 									required
 									className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+									placeholder="Логін має бути від 3 символів"
 								/>
 							</div>
 							{!isLoginMode && (
@@ -130,6 +146,7 @@ const LoginPage = () => {
 										onChange={(e) => setEmail(e.target.value)}
 										required
 										className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+										placeholder='В форматі &quot;test@gmail.com&quot;'
 									/>
 								</div>
 							)}
@@ -145,6 +162,7 @@ const LoginPage = () => {
 									onChange={(e) => setPassword(e.target.value)}
 									required
 									className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+									placeholder="Пароль має бути від 3 символів"
 								/>
 							</div>
 							<button

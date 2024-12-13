@@ -2,6 +2,7 @@ import {Router} from 'express';
 import * as auth from './../../controller/auth.js';
 import createUser from './../../controller/usersController.js';
 import userModel from '../../model/user-info.js';
+import Token from '../../model/auth.js';
 import onlyAuthMv from './mv/onlyAuth.js';
 import Ajv from 'ajv';
 import {userSchema} from '../helpers/userSchemaValidation.js';
@@ -23,15 +24,30 @@ router.post('/strategy/local/login', async (req, res) => {
 	
 	const user = await userModel.findOne({login});
 	if (!user) {
-		return res.status(400).json({error: 'Invalid login or password'});
+		return res.status(400).json({error: 'Invalid login'});
 	}
 	
 	const isPasswordValid = await bcrypt.compare(password, user.password);
 	if (!isPasswordValid) {
-		return res.status(400).json({error: 'Invalid login or password'});
+		return res.status(400).json({error: 'Invalid password'});
 	}
 	
-	return res.status(200).json({status: 'ok'});
+	 // Проверяем, есть ли уже сохраненный refreshToken
+    const tokenRecord = await Token.findOne({ userId: user._id });
+    let accessT, refreshT;
+
+    if (tokenRecord) {
+        // Если refresh token существует, генерируем новый access token
+        const payload = { iss: user._id.toString() };
+        const { token: newAccessT } = await auth.createAccessToken(payload);
+        accessT = newAccessT;
+        refreshT = tokenRecord.refreshToken;  // Берем старый refresh token
+    }
+	
+	res.status(200).json({
+        status: 'ok',
+        message: { accessT, refreshT }
+    });
 })
 
 // Реєстрація
