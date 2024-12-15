@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import {ToastContainer, toast} from 'react-toastify';
+import {toast} from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -29,12 +29,11 @@ const LoginPage = () => {
 				login,
 				password
 			});
-			console.log(data);
-			console.log(data.status);
+
 			if (data.status === 'ok') {
+				toast.success('Ви успішно залогінились і отримали токен!');
 				localStorage.setItem('accessToken', data.message.accessT);
         localStorage.setItem('refreshToken', data.message.refreshT);
-				toast.success('Ви успішно залогінились і отримали токен!');
 				 navigate('/profile'); // Редирект на профіль після успішного входу
 			}
 		} catch (error) {
@@ -253,7 +252,6 @@ const LoginPage = () => {
 						</button>
 					</>
 				)}
-				<ToastContainer/>
 			</div>
 		</div>
 	);

@@ -1,16 +1,16 @@
 import nodemailer from 'nodemailer';
 
-// Настроим transporter для отправки почты через Gmail
+// Налаштуємо transporter для надсилання пошти через Gmail
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   secure: true,
   auth: {
     user: 'evgenij.nechujveter@gmail.com', // Ваш email
-    pass: 'katlnyqvsuziceny',  // Ваш пароль или пароль приложения
+    pass: 'katlnyqvsuziceny',  // Ваш пароль або пароль застосунку
   },
 });
 
-// Функция для отправки письма с инструкциями по восстановлению пароля
+// Функція для надсилання листа з інструкціями відновлення пароля
 const sendResetPasswordEmail = async (email, resetLink) => {
   try {
     const info = await transporter.sendMail({

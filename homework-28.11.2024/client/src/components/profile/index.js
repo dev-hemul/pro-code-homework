@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
-
+import { toast } from 'react-toastify';
 
 const Profile = () => {
   const [profileData, setProfileData] = useState(null);
@@ -10,7 +9,6 @@ const Profile = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Отримуємо токен із localStorage
     const accessToken = localStorage.getItem('accessToken');
 
     if (!accessToken) {
@@ -20,7 +18,6 @@ const Profile = () => {
 
     const fetchProfileData = async () => {
       try {
-        // Запит на захищений роут
         const { data } = await axios.post(
           'http://localhost:4000/profile',
           {},
@@ -38,6 +35,11 @@ const Profile = () => {
 
     fetchProfileData();
   }, []);
+
+  const logout = () => {
+    localStorage.removeItem('accessToken');
+    navigate('/');
+  };
 
   if (error) {
     return (
@@ -61,11 +63,6 @@ const Profile = () => {
         <div className="text-lg font-medium text-gray-600">Loading...</div>
       </div>
     );
-  }
-  
-  const logout = () => {
-    localStorage.removeItem('accessToken');
-    navigate('/');
   }
 
   return (

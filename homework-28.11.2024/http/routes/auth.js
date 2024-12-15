@@ -41,7 +41,7 @@ router.post('/strategy/local/login', async (req, res) => {
         const payload = { iss: user._id.toString() };
         const { token: newAccessT } = await auth.createAccessToken(payload);
         accessT = newAccessT;
-        refreshT = tokenRecord.refreshToken;  // Берем старый refresh token
+        refreshT = tokenRecord.refreshToken;  // Берем старий refresh token
     }
 	
 	res.status(200).json({
@@ -68,7 +68,7 @@ router.post('/strategy/local/registration', async (req, res) => {
 	}
 	
 	// Записуємо дані юзера в бд
-	const newUser = await createUser(login, password, email);  // Сохраняем нового пользователя
+	const newUser = await createUser(login, password, email);  // Зберігаємо нового користувача
 	
 	// Отримуємо ID нового користувача
 	const userId = newUser._id.toString();

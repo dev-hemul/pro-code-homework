@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import { requestPasswordReset, resetPassword } from '../../controller/forgotPassword.js'; // Подключаем ваш новый контроллер
+import { requestPasswordReset, resetPassword } from '../../controller/forgotPassword.js';
 
 const app = Router();
 
-// Маршрут для запроса восстановления пароля
+// Роут для запиту відновлення пароля
 app.post('/forgot-password', requestPasswordReset);
 
-// Маршрут для сброса пароля
+// Роут для скидання пароля
 app.post('/reset-password', resetPassword);
 
 export default app;

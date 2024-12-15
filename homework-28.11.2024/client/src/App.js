@@ -1,9 +1,10 @@
 import Layout from './components/layout/layout';
 import Login from './components/auth/login/index';
 import Profile from './components/profile/index';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';  // Используем новый API из react-router-dom
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import ResetPassword from './components/resetPassword/index';
 import './App.css';
+import {ToastContainer} from 'react-toastify';
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 						<Route path="/profile" element={<Profile/>}/>
 						<Route path="/reset-password/:token" element={<ResetPassword/>}/>
 					</Routes>
+					<ToastContainer/>
 				</Layout>
 			</div>
 		</Router>
