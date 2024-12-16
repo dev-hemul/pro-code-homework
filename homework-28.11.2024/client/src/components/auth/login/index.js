@@ -25,6 +25,7 @@ const LoginPage = () => {
     }
 		 
 		try {
+			
 			const {data} = await axios.post('http://localhost:4000/auth/strategy/local/login', {
 				login,
 				password

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 const Profile = () => {
   const [profileData, setProfileData] = useState(null);
@@ -27,6 +26,7 @@ const Profile = () => {
             },
           }
         );
+        /*console.log(data);*/
         setProfileData(data.payload);
       } catch (error) {
         setError('Ваш токен більше не дійсний, залогіньтесь будь-ласка знову');
@@ -73,6 +73,12 @@ const Profile = () => {
         </h2>
         <p className="text-lg mb-4">
           <span className="font-medium text-gray-600">User ID:</span> {profileData.uid}
+        </p>
+        <p className="text-lg mb-4">
+          <span className="font-medium text-gray-600">Ваш логін:</span> {profileData.login}
+        </p>
+        <p className="text-lg mb-4">
+          <span className="font-medium text-gray-600">Ваш Пароль:</span> {profileData.email}
         </p>
         <button
           type="button"
