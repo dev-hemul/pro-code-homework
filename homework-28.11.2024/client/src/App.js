@@ -12,9 +12,9 @@ function App() {
       <div>
         <Layout>
           <Routes>
-            {/* Роут для логина */}
+            {/* Роут для логіна */}
             <Route path="/" element={<Login />} />
-            {/* Защищенный роут для профиля */}
+            {/* Захищений роут для профілю */}
             <Route path="/profile" element={<Profile />} />
             <Route path="/reset-password/:token" element={<ResetPassword />} />
           </Routes>

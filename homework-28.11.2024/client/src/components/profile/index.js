@@ -17,8 +17,9 @@ const Profile = () => {
 
     const fetchProfileData = async () => {
       try {
+        const apiUrl = process.env.REACT_APP_PROFILE;
         const { data } = await axios.post(
-          'http://localhost:4000/profile',
+          `${apiUrl}`,
           {},
           {
             headers: {

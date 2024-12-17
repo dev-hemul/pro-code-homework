@@ -6,8 +6,9 @@ import {fileURLToPath} from 'url';
 import morgan from 'morgan';
 // Обробка та відображення помилок
 import createHttpError from 'http-errors';
-	// Импорт CORS
+// Імпорт CORS
 import cors from 'cors';
+// Роути
 import mainRouter from './routes/main.js'
 import authRouter from './routes/auth.js';
 import resetPasword from './routes/restore.js';

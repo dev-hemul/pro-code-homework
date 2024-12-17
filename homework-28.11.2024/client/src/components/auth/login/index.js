@@ -26,7 +26,9 @@ const LoginPage = () => {
 		 
 		try {
 			
-			const {data} = await axios.post('http://localhost:4000/auth/strategy/local/login', {
+			 const apiUrl = process.env.REACT_APP_LOGIN;
+			
+			const {data} = await axios.post(`${apiUrl}`, {
 				login,
 				password
 			});
@@ -70,9 +72,11 @@ const LoginPage = () => {
 				console.error('Error during login:', error);
 			}
 		} else {
-			// Регистрация
+			// Реєстрація
+			
+			const apiUrl = process.env.REACT_APP_REGISTRATION;
 			try {
-				const {data} = await axios.post('http://localhost:4000/auth/strategy/local/registration', {
+				const {data} = await axios.post(`${apiUrl}`, {
 					login,
 					password,
 					email
@@ -97,7 +101,8 @@ const LoginPage = () => {
 	const handlePasswordReset = async (e) => {
   e.preventDefault();
   try {
-    const { data } = await axios.post('http://localhost:4000/restore/forgot-password', { email });
+		const apiUrl = process.env.REACT_APP_FORGOT_PASSWORD;
+    const { data } = await axios.post(`${apiUrl}`, { email });
 	  console.log(data)
     if (data.status === 'ok') {
       toast.success('Інструкція з відновлення паролю відправлена на вашу пошту.');
